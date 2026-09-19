@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@popup/*": ["src/popup/*"],
+      "@editor/*": ["src/editor/*"],
+      "@background/*": ["src/background/*"],
+      "@content/*": ["src/content/*"],
+      "@storage/*": ["src/storage/*"],
+      "@exporters/*": ["src/exporters/*"],
+      "@imports/*": ["src/imports/*"],
+      "@core/*": ["src/core/*"]
+    },
+    "types": ["chrome", "vitest/globals"]
+  },
+  "include": ["src", "tests", "vite-env.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

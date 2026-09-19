@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://workflow-recorder.dev/schemas/workflow.schema.json",
+  "title": "Workflow",
+  "description": "Canonical workflow format for the Advanced Chrome Workflow Recorder extension.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "name", "createdAt", "updatedAt", "variables", "steps", "settings"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Schema version string (e.g. '1.0')."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^wf_[a-z0-9_]+$",
+      "description": "Unique workflow ID prefixed with 'wf_'."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable workflow name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional workflow description."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "browser": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "userAgent": { "type": "string" },
+        "platform": { "type": "string" }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/WorkflowVariable" }
+    },
+    "steps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/WorkflowStep" }
+    },
+    "settings": {
+      "type": "object",
+      "required": ["defaultTimeout", "defaultRetryCount", "screenshotsEnabled"],
+      "properties": {
+        "defaultTimeout": { "type": "number", "minimum": 0 },
+        "defaultRetryCount": { "type": "integer", "minimum": 0 },
+        "screenshotsEnabled": { "type": "boolean" }
+      }
+    }
+  },
+  "$defs": {
+    "WorkflowVariable": {
+      "type": "object",
+      "required": ["name", "type", "required"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$" },
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "date", "datetime", "email", "phone", "file", "url", "json"]
+        },
+        "required": { "type": "boolean" },
+        "defaultValue": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "SelectorCandidate": {
+      "type": "object",
+      "required": ["type", "value", "score"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["id", "name", "aria", "role", "testId", "dataAttr", "css", "xpath", "text"]
+        },
+        "value": { "type": "string", "minLength": 1 },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "ElementTarget": {
+      "type": "object",
+      "required": ["tagName", "classes", "selectors"],
+      "properties": {
+        "tagName": { "type": "string" },
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "text": { "type": "string" },
+        "ariaLabel": { "type": "string" },
+        "role": { "type": "string" },
+        "title": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "classes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "selectors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/SelectorCandidate" }
+        },
+        "frame": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string", "enum": ["main", "iframe"] },
+            "depth": { "type": "integer", "minimum": 0 },
+            "selectors": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SelectorCandidate" }
+            }
+          }
+        }
+      }
+    },
+    "Position": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      }
+    },
+    "WorkflowStep": {
+      "type": "object",
+      "required": ["id", "type", "description"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "disabled": { "type": "boolean" },
+        "comment": { "type": "string" },
+        "timeout": { "type": "number" },
+        "retryCount": { "type": "integer" }
+      },
+      "discriminator": {
+        "propertyName": "type"
+      }
+    }
+  }
+}
