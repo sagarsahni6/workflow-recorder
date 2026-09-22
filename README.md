@@ -192,7 +192,21 @@ npm run dev
 
 # Produce production build
 npm run build
+
+# Validate package compliance for Chrome Web Store
+npm run validate:cws
+
+# Build, validate, and create ready-to-upload ZIP for Chrome Web Store
+npm run package
 ```
+
+### 🚀 Chrome Web Store Publishing
+
+To publish the extension to the Chrome Web Store:
+1. Run `npm run package` — this builds, audits, and generates `release/workflow-recorder-v1.0.0.zip`.
+2. Review the complete submission instructions, copy-paste reviewer justifications, and asset checklist in [Chrome Web Store Submission Guide](file:///c:/Users/USER01/Documents/CHROME%20EXTENSION/WORKFLOW%20RECORDER/docs/chrome-web-store-submission.md).
+3. Upload `release/workflow-recorder-v1.0.0.zip` to the [Chrome Developer Dashboard](https://chrome.google.com/webstore/devconsole).
+4. The standalone Privacy Policy is available at [docs/privacy.html](file:///c:/Users/USER01/Documents/CHROME%20EXTENSION/WORKFLOW%20RECORDER/docs/privacy.html).
 
 ---
 

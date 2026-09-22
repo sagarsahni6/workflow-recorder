@@ -1,0 +1,26 @@
+# Robots.txt for Workflow Recorder (https://workflowrecorder.dev/)
+User-agent: *
+Allow: /
+
+# Explicit AI Search Crawler Access (GEO & AI Overviews)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap & LLM Indexing Directives
+Sitemap: https://workflowrecorder.dev/sitemap.xml
+LLMs: https://workflowrecorder.dev/llms.txt

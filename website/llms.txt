@@ -1,0 +1,31 @@
+# Workflow Recorder
+
+> Production-ready Chrome Extension (Manifest V3) that records browser interactions and instantly compiles them into resilient, 100% offline Playwright (TypeScript/JavaScript), Puppeteer, Selenium Python, Cypress, and canonical JSON/YAML test automation suites.
+
+## Overview
+Workflow Recorder captures clicks, form submissions, keystrokes, and multi-tab navigations using an intelligent 7-tier selector scoring engine. Unlike brittle coordinate-based tools, it ranks locators based on test IDs, accessible ARIA roles, semantic attributes, and structural XPath, while automatically rejecting dynamic build-time CSS classes (CSS-in-JS, Tailwind hashes, UUIDs).
+
+## Core Capabilities
+- **7-Tier Resilient Selector Engine**: Automatically prioritizes `data-testid`, accessible ARIA roles (`role` + accessible name), stable form controls, and structural paths. Normalizes and validates locators against live DOM.
+- **Closed Shadow DOM & iFrame Piercing**: Traverses open and closed shadow roots and multi-level iframes without breaking encapsulation.
+- **Smart Event Normalizer**: Buffers keystrokes into atomic `input` steps, debounces scrolls to 400ms settled coordinates, and eliminates redundant clicks.
+- **Dynamic Variable Parameterization**: Scans inputs and replaces literals with reusable `${variable_name}` expressions, generating typed TypeScript interfaces automatically.
+- **Zero-Telemetry PrivacyGuard**: 100% client-side operation inside local browser IndexedDB (`workflow_recorder_db`). Automatically masks `type="password"` inputs, credit cards, CVVs, and URL tokens. Zero external HTTP/HTTPS calls.
+- **Multi-Framework Exporters**: One-click generation and file download for:
+  - Playwright TypeScript (`.spec.ts`)
+  - Playwright JavaScript (`.spec.js`)
+  - Puppeteer Node.js (`.js`)
+  - Selenium WebDriver Python (`.py`)
+  - Cypress E2E (`.cy.ts`)
+  - Canonical JSON Schema v1.0 (`.json`)
+  - Declarative Automation YAML (`.yaml`)
+  - Markdown Runbook (`.md`)
+
+## Key Links & Resources
+- Website & Live Sandbox: https://workflowrecorder.dev/
+- Features & Architectural Deep-Dive: https://workflowrecorder.dev/features.html
+- Developer Manual & User Guide: https://workflowrecorder.dev/docs.html
+- Automation Exporters Hub: https://workflowrecorder.dev/exporters.html
+- Privacy & Security Whitepaper: https://workflowrecorder.dev/privacy.html
+- Chrome Web Store Install: https://chrome.google.com/webstore
+- Full LLM Context: https://workflowrecorder.dev/llms-full.txt

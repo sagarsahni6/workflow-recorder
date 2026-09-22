@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary SEO Meta Tags -->
+  <title>Privacy Policy &amp; Security Model — Zero Telemetry | Workflow Recorder</title>
+  <meta name="title" content="Privacy Policy &amp; Security Model — Zero Telemetry | Workflow Recorder" />
+  <meta name="description" content="Workflow Recorder's strict privacy policy and security architecture: 100% offline, zero network requests, automatic password masking, and client-side IndexedDB." />
+  <meta name="keywords" content="workflow recorder privacy, zero telemetry chrome extension, offline test automation, privacy-by-design, gdpr compliant recorder, local storage only recorder" />
+  <meta name="author" content="Workflow Recorder Team" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://workflowrecorder.dev/privacy.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png" />
+  <link rel="apple-touch-icon" href="assets/icon-128.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://workflowrecorder.dev/privacy.html" />
+  <meta property="og:title" content="Privacy Policy &amp; Security Model — Zero Telemetry | Workflow Recorder" />
+  <meta property="og:description" content="Workflow Recorder's strict privacy policy and security architecture: 100% offline, zero network requests, automatic password masking, and client-side IndexedDB." />
+  <meta property="og:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="560" />
+  <meta property="og:site_name" content="Workflow Recorder" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://workflowrecorder.dev/privacy.html" />
+  <meta name="twitter:title" content="Zero-Telemetry Privacy Policy | Workflow Recorder" />
+  <meta name="twitter:description" content="100% local, zero analytics, zero external network requests. Review our security model and MV3 permissions breakdown." />
+  <meta name="twitter:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data: WebPage & PrivacyPolicy -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Workflow Recorder Privacy & Security Policy",
+    "headline": "Workflow Recorder Privacy Guarantees & Zero-Telemetry Architecture",
+    "description": "Privacy guarantees, permissions rationale, zero telemetry verification, and client-side data isolation model.",
+    "url": "https://workflowrecorder.dev/privacy.html",
+    "image": "https://workflowrecorder.dev/assets/promo-marquee.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://workflowrecorder.dev/assets/icon-128.png"
+      }
+    },
+    "datePublished": "2026-09-19",
+    "dateModified": "2026-09-22"
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://workflowrecorder.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": "https://workflowrecorder.dev/privacy.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Decorative Glows -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-1"></div>
+    <div class="decor-glow-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link" aria-label="Workflow Recorder Home">
+        <img src="assets/icon-48.png" alt="Workflow Recorder Icon" class="logo-icon" width="38" height="38" />
+        <div class="logo-text-group">
+          <span class="logo-title">Workflow Recorder</span>
+          <span class="logo-tag">CHROME EXTENSION MV3</span>
+        </div>
+      </a>
+
+      <nav id="desktop-nav" class="desktop-nav" aria-label="Main Navigation">
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="index.html#demo" class="nav-link">Live Sandbox</a>
+        <a href="docs.html" class="nav-link">Docs &amp; Guides</a>
+        <a href="exporters.html" class="nav-link">Exporters</a>
+        <a href="index.html#comparison" class="nav-link">Comparison</a>
+        <a href="privacy.html" class="nav-link active">Privacy</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn-chrome btn-chrome-header js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+          <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+            <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+            <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+          </svg>
+          <span>Add to Chrome</span>
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Mobile Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <div class="container" style="padding-top: 50px; padding-bottom: 90px; max-width: 960px;">
+      
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumbs-separator">/</span>
+        <span class="breadcrumbs-current">Privacy Policy &amp; Security Architecture</span>
+      </nav>
+
+      <div class="section-badge">
+        <span class="dot" style="background: var(--success);"></span>
+        <span>100% Client-Side Verified</span>
+      </div>
+
+      <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 12px;">
+        Privacy Policy &amp; Security Architecture
+      </h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light);">
+        Version 1.0.0 &bull; Effective Date: September 2026 &bull; Certified Google Chrome Manifest V3
+      </p>
+
+      <!-- Key Commitment Card -->
+      <div class="docs-callout docs-callout-success" style="margin-bottom: 40px; font-size: 1rem;">
+        <strong>Core Privacy Guarantee:</strong> Workflow Recorder does not collect, track, monetize, or transmit any user data or credentials. All recorded steps, selectors, timestamps, and export scripts are processed and stored <strong>100% locally</strong> in your browser's private IndexedDB storage.
+      </div>
+
+      <!-- Security Scorecard -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 48px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--success); font-family: var(--font-mono);">0</div>
+          <div style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">External HTTP Calls</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Zero tracking or telemetry</div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--primary); font-family: var(--font-mono);">100%</div>
+          <div style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">Client-Side Processing</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Air-gapped safe</div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--warning); font-family: var(--font-mono);">AUTO</div>
+          <div style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">Password Masking</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Scrubbed before storage</div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--success); font-family: var(--font-mono);">CSP</div>
+          <div style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">script-src 'self'</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">No remote execution</div>
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 36px 0 16px 0;">
+        1. Zero Telemetry &amp; Network Call Audit
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+        Unlike commercial recorder plugins that stream keystrokes or analytics to cloud dashboards, Workflow Recorder enforces a zero-outbound policy. The extension contains:
+      </p>
+      <ul style="margin-left: 24px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
+        <li><strong>No Google Analytics, Mixpanel, or Amplitude:</strong> Zero third-party tracker scripts.</li>
+        <li><strong>No Sentry or remote crash reporters:</strong> Debugging logs reside strictly in your local developer console.</li>
+        <li><strong>Zero AI API keys or cloud relays:</strong> Selector generation and test exports run purely in local browser memory.</li>
+      </ul>
+
+      <!-- Section 2 -->
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 36px 0 16px 0;">
+        2. Automatic Sensitive Data &amp; Password Masking
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+        Because browser recording touches active web pages handling authentication and personal data, the <code>PrivacyGuard</code> subsystem automatically protects sensitive data:
+      </p>
+      <ul style="margin-left: 24px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
+        <li><strong>Password Fields:</strong> Any input matching <code>type="password"</code> is intercepted. Plaintext keystrokes never enter memory or IndexedDB and are saved as <code>{{password}}</code> tokens.</li>
+        <li><strong>Financial &amp; Identity Identifiers:</strong> Fields with labels or names matching credit card numbers, CVVs, Social Security numbers, bank accounts, or OTP tokens are automatically masked.</li>
+        <li><strong>URL Token Scrubbing:</strong> Query parameters matching secret tokens (e.g. <code>?token=...</code> or <code>?apiKey=...</code>) are scrubbed from navigation records.</li>
+      </ul>
+
+      <!-- Section 3 -->
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 36px 0 16px 0;">
+        3. Chrome Extension Permissions Justification
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+        Every permission declared in <code>manifest.json</code> is strictly audited and required for local functionality:
+      </p>
+
+      <div class="docs-table-wrap">
+        <table class="docs-table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Permission</th>
+              <th>Technical Rationale</th>
+              <th style="width: 120px;">Data Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>storage</code></td>
+              <td>Stores workflow definitions, step timelines, and user preferences locally in browser IndexedDB and <code>chrome.storage.local</code>.</td>
+              <td>100% Local</td>
+            </tr>
+            <tr>
+              <td><code>tabs</code></td>
+              <td>Detects URL changes, page reloads, and multi-tab transitions during active recording sessions.</td>
+              <td>Local Tabs Only</td>
+            </tr>
+            <tr>
+              <td><code>scripting</code></td>
+              <td>Dynamically injects the passive recording listener and floating HUD into target web pages when initiated by the user.</td>
+              <td>Active Recording Only</td>
+            </tr>
+            <tr>
+              <td><code>downloads</code></td>
+              <td>Allows users to download generated automation script files (e.g. <code>.spec.ts</code>, <code>.py</code>, <code>.json</code>) directly to their filesystem.</td>
+              <td>User-Initiated Downloads</td>
+            </tr>
+            <tr>
+              <td><code>&lt;all_urls&gt;</code></td>
+              <td>Required to inject the recording listener into arbitrary developer-specified websites and test environments.</td>
+              <td>Local DOM Events</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 4 -->
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 36px 0 16px 0;">
+        4. User Data Control &amp; Instant Purge
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+        You have complete ownership over your workflow recordings:
+      </p>
+      <ul style="margin-left: 24px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 32px;">
+        <li><strong>Local Export:</strong> Export any workflow to canonical JSON or YAML for version control or offline backups.</li>
+        <li><strong>Single-Click Wipe:</strong> Click "Clear All Workflows" in extension settings to permanently delete all IndexedDB records and screenshot blobs.</li>
+        <li><strong>Uninstallation:</strong> Removing Workflow Recorder from Chrome immediately and automatically removes all associated storage.</li>
+      </ul>
+
+      <!-- Section 5 -->
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 36px 0 16px 0;">
+        5. Enterprise &amp; Air-Gapped Compliance
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+        Workflow Recorder's offline-only architecture satisfies strict compliance frameworks:
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 40px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="color: var(--primary); margin-bottom: 6px;">GDPR Article 25</h4>
+          <p style="font-size: 0.86rem; color: var(--text-secondary);">Complies with Privacy by Design and Privacy by Default mandates with zero data transfer to external processors.</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="color: var(--primary); margin-bottom: 6px;">CCPA / CPRA</h4>
+          <p style="font-size: 0.86rem; color: var(--text-secondary);">No personal consumer data is ever sold, shared, or collected across sessions or devices.</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 18px;">
+          <h4 style="color: var(--primary); margin-bottom: 6px;">SOC2 Type II Aligned</h4>
+          <p style="font-size: 0.86rem; color: var(--text-secondary);">Air-gapped and internal network friendly; safe for defense, healthcare, and financial engineering teams.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/icon-32.png" alt="Workflow Recorder Icon" width="24" height="24" />
+            <span>Workflow Recorder</span>
+          </div>
+          <p class="footer-desc">
+            Production-quality, privacy-first Google Chrome Extension (Manifest V3) that records browser interactions and generates resilient test automation scripts.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">License: MIT Open Source</div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Features &amp; Engine</a></li>
+            <li><a href="index.html#demo">Live Sandbox</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="exporters.html">Exporters Studio</a></li>
+            <li><a href="index.html#comparison">Comparison</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Frameworks</h4>
+          <ul class="footer-links">
+            <li><a href="exporters.html">Playwright (TS/JS)</a></li>
+            <li><a href="exporters.html">Puppeteer Node.js</a></li>
+            <li><a href="exporters.html">Selenium Python</a></li>
+            <li><a href="exporters.html">Cypress E2E</a></li>
+            <li><a href="exporters.html">JSON &amp; YAML Specs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Installation</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="js-open-install-modal">Chrome Web Store</a></li>
+            <li><a href="docs.html#install">Developer Mode Guide</a></li>
+            <li><a href="features.html#selector-engine">Selector Intelligence</a></li>
+            <li><a href="privacy.html">Privacy &amp; Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Workflow Recorder. Released under the MIT License.</div>
+        <div>Google Chrome is a trademark of Google LLC. Workflow Recorder is an independent open-source project.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INSTALL MODAL -->
+  <div id="install-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <img src="assets/icon-32.png" alt="Workflow Recorder" width="28" height="28" />
+          <h3 id="modal-title" class="modal-title">Install Workflow Recorder</h3>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Installation Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Chrome Web Store</span>
+            <span style="font-size: 0.72rem; color: var(--primary); font-weight: 800; background: var(--primary-light); padding: 2px 8px; border-radius: 9999px;">RECOMMENDED</span>
+          </div>
+          <p class="modal-option-desc">Install directly into Google Chrome, Microsoft Edge, Brave, or Opera with 1 click.</p>
+          <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" class="btn btn-chrome" style="width: 100%;">
+            <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+              <circle cx="12" cy="12" r="4" fill="#FFFFFF"/>
+            </svg>
+            <span>Open in Chrome Web Store</span>
+          </a>
+        </div>
+
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Build from Source (Developer Mode)</span>
+            <span style="font-size: 0.72rem; color: var(--success); font-weight: 800; background: var(--success-bg); padding: 2px 8px; border-radius: 9999px;">OPEN SOURCE</span>
+          </div>
+          <p class="modal-option-desc">Compile locally with <code>npm run build</code> and load the unpacked <code>dist/</code> directory in <code>chrome://extensions</code>.</p>
+          <a href="docs.html#install" class="btn btn-secondary" style="width: 100%; text-align: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>View Developer Build Guide</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

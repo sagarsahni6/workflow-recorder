@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary SEO Meta Tags -->
+  <title>Documentation &amp; Step-by-Step Automation Guide | Workflow Recorder</title>
+  <meta name="title" content="Documentation &amp; Step-by-Step Automation Guide | Workflow Recorder" />
+  <meta name="description" content="Official developer documentation for Workflow Recorder: step-by-step recording, floating HUD, dynamic variable binding, assertions, and CI/CD pipelines." />
+  <meta name="keywords" content="workflow recorder documentation, playwright recorder guide, browser automation tutorial, automated test recorder, puppeteer script recording manual" />
+  <meta name="author" content="Workflow Recorder Team" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://workflowrecorder.dev/docs.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png" />
+  <link rel="apple-touch-icon" href="assets/icon-128.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://workflowrecorder.dev/docs.html" />
+  <meta property="og:title" content="Documentation &amp; Step-by-Step Automation Guide | Workflow Recorder" />
+  <meta property="og:description" content="Official user manual: recording workflows, floating controller shortcuts, action catalog, dynamic variables, and CI/CD integration." />
+  <meta property="og:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="560" />
+  <meta property="og:site_name" content="Workflow Recorder" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://workflowrecorder.dev/docs.html" />
+  <meta name="twitter:title" content="Documentation &amp; Step-by-Step Automation Guide | Workflow Recorder" />
+  <meta name="twitter:description" content="Learn how to record browser workflows and generate resilient test automation scripts." />
+  <meta name="twitter:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data: HowTo Schema for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Record a Browser Workflow and Export to Playwright",
+    "description": "Step-by-step guide to recording web interactions in Google Chrome and generating clean, typed Playwright test scripts.",
+    "image": "https://workflowrecorder.dev/assets/screenshot-2-live-recording.png",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Navigate to Webpage",
+        "text": "Open your target web application in Google Chrome or any Chromium-based browser."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Start Recording",
+        "text": "Click the Workflow Recorder extension icon or press Ctrl+Shift+R (Cmd+Shift+R on macOS) to launch the floating recorder HUD."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Perform User Flow",
+        "text": "Interact with the page naturally by clicking buttons, filling forms, and verifying checkpoints."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Stop and Export",
+        "text": "Click Stop on the floating controller, open the Workflow Editor, and export to Playwright TypeScript, Puppeteer, or Selenium."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: TechArticle Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Workflow Recorder Comprehensive User Documentation",
+    "description": "Complete reference manual covering installation, recording floating HUD, step editor, variables, assertions, and exporters.",
+    "url": "https://workflowrecorder.dev/docs.html",
+    "image": "https://workflowrecorder.dev/assets/promo-marquee.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://workflowrecorder.dev/assets/icon-128.png"
+      }
+    },
+    "datePublished": "2026-09-19",
+    "dateModified": "2026-09-22"
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://workflowrecorder.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Documentation",
+        "item": "https://workflowrecorder.dev/docs.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Decorative Glows -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-1"></div>
+    <div class="decor-glow-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link" aria-label="Workflow Recorder Home">
+        <img src="assets/icon-48.png" alt="Workflow Recorder Icon" class="logo-icon" width="38" height="38" />
+        <div class="logo-text-group">
+          <span class="logo-title">Workflow Recorder</span>
+          <span class="logo-tag">CHROME EXTENSION MV3</span>
+        </div>
+      </a>
+
+      <nav id="desktop-nav" class="desktop-nav" aria-label="Main Navigation">
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="index.html#demo" class="nav-link">Live Sandbox</a>
+        <a href="docs.html" class="nav-link active">Docs &amp; Guides</a>
+        <a href="exporters.html" class="nav-link">Exporters</a>
+        <a href="index.html#comparison" class="nav-link">Comparison</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn-chrome btn-chrome-header js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+          <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+            <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+            <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+          </svg>
+          <span>Add to Chrome</span>
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Mobile Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      
+      <!-- Documentation Header Bar -->
+      <div style="padding-top: 40px; padding-bottom: 20px;">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span class="breadcrumbs-current">Documentation &amp; User Guides</span>
+        </nav>
+
+        <h1 style="font-size: 2.4rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 12px;">
+          Workflow Recorder Documentation
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 800px;">
+          Comprehensive developer and QA documentation for recording, editing, parameterizing, and compiling production-ready automation test suites.
+        </p>
+      </div>
+
+      <!-- Docs Layout: Sidebar + Main Content -->
+      <div class="docs-wrapper">
+        
+        <!-- Sticky Sidebar Navigation -->
+        <aside class="docs-sidebar" aria-label="Documentation Index">
+          
+          <!-- Live Docs Search -->
+          <div class="docs-search">
+            <svg class="docs-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="docs-search-input" placeholder="Search docs..." aria-label="Filter documentation sections" />
+          </div>
+
+          <!-- Group 1: Getting Started -->
+          <div class="docs-nav-group">
+            <div class="docs-nav-heading">Getting Started</div>
+            <a href="#quickstart" class="docs-nav-link active">Quickstart (60 Seconds)</a>
+            <a href="#install" class="docs-nav-link">Installation &amp; Setup</a>
+            <a href="#browser-support" class="docs-nav-link">Browser Compatibility</a>
+          </div>
+
+          <!-- Group 2: Recording -->
+          <div class="docs-nav-group">
+            <div class="docs-nav-heading">Recording Workflows</div>
+            <a href="#floating-hud" class="docs-nav-link">Floating In-Page HUD</a>
+            <a href="#hotkeys" class="docs-nav-link">Keyboard Shortcuts</a>
+            <a href="#action-catalog" class="docs-nav-link">Action Types Catalog</a>
+          </div>
+
+          <!-- Group 3: Editing -->
+          <div class="docs-nav-group">
+            <div class="docs-nav-heading">Editor &amp; Parameters</div>
+            <a href="#editor-overview" class="docs-nav-link">3-Panel Workflow Editor</a>
+            <a href="#variables" class="docs-nav-link">Dynamic Variables (${var})</a>
+            <a href="#assertions" class="docs-nav-link">Assertions &amp; Verifications</a>
+          </div>
+
+          <!-- Group 4: Advanced -->
+          <div class="docs-nav-group">
+            <div class="docs-nav-heading">Export &amp; CI/CD</div>
+            <a href="#exporters-guide" class="docs-nav-link">Automation Exporters</a>
+            <a href="#cicd" class="docs-nav-link">CI/CD &amp; GitHub Actions</a>
+            <a href="#troubleshooting" class="docs-nav-link">Troubleshooting &amp; FAQ</a>
+          </div>
+
+        </aside>
+
+        <!-- Main Documentation Body -->
+        <div class="docs-content">
+          
+          <!-- SECTION: Quickstart -->
+          <section id="quickstart" class="docs-section">
+            <h2>1. Quickstart: Record in 60 Seconds</h2>
+            <p>
+              Workflow Recorder lets you turn any manual browser task into clean, automated Playwright, Puppeteer, or Selenium scripts without writing code by hand.
+            </p>
+            
+            <div class="docs-callout docs-callout-info">
+              <strong>Prerequisite:</strong> Google Chrome, Microsoft Edge, Brave, or Chromium browser (version 114+).
+            </div>
+
+            <h3>Step 1: Open Target Page</h3>
+            <p>Navigate to any website or web application you want to automate (e.g. <code>https://app.example.com/login</code>).</p>
+
+            <h3>Step 2: Launch Recorder</h3>
+            <p>
+              Click the Workflow Recorder extension icon in your Chrome toolbar, or press <kbd>Ctrl+Shift+R</kbd> (<kbd>Cmd+Shift+R</kbd> on macOS). The floating recorder HUD will appear in the bottom-right corner.
+            </p>
+
+            <h3>Step 3: Perform User Actions</h3>
+            <p>
+              Click buttons, enter credentials, submit forms, or switch tabs. The HUD automatically tracks your steps, counts events, and inspects each DOM target with real-time stability scoring.
+            </p>
+
+            <h3>Step 4: Stop &amp; Export</h3>
+            <p>
+              Click <strong>Stop Recording</strong> on the floating controller. Your complete workflow opens in the 3-panel Workflow Editor, where you can inspect selectors, bind dynamic variables, and export to Playwright TypeScript, Puppeteer, or Selenium Python with 1 click.
+            </p>
+          </section>
+
+          <!-- SECTION: Installation & Setup -->
+          <section id="install" class="docs-section">
+            <h2>2. Installation &amp; Setup</h2>
+            <p>
+              Workflow Recorder offers two installation methods: 1-click install from the Google Chrome Web Store, or building locally from source code.
+            </p>
+
+            <h3>Method A: Chrome Web Store (Recommended)</h3>
+            <ol style="margin-left: 20px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px;">
+              <li>Visit the <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>.</li>
+              <li>Click <strong>Add to Chrome</strong>.</li>
+              <li>Confirm the extension permissions. The extension icon will appear in your extensions menu.</li>
+            </ol>
+
+            <h3>Method B: Build from Source (Developer Mode)</h3>
+            <p>
+              If you want to contribute, customize features, or run in strictly air-gapped enterprise environments, build from source using Node.js:
+            </p>
+
+            <div style="background: var(--bg-code); padding: 18px 22px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px;">
+              <span style="color: var(--text-muted);"># 1. Clone repository</span><br/>
+              <code>git clone https://github.com/workflow-recorder/workflow-recorder.git</code><br/>
+              <code>cd workflow-recorder</code><br/><br/>
+              <span style="color: var(--text-muted);"># 2. Install dependencies &amp; compile Manifest V3 build</span><br/>
+              <code>npm install</code><br/>
+              <code>npm run build</code><br/><br/>
+              <span style="color: var(--text-muted);"># 3. Load unpacked directory in Chrome</span><br/>
+              <span style="color: var(--text-muted);">&bull; Navigate to chrome://extensions</span><br/>
+              <span style="color: var(--text-muted);">&bull; Enable "Developer mode" (toggle top right)</span><br/>
+              <span style="color: var(--text-muted);">&bull; Click "Load unpacked" and select the generated <strong>dist/</strong> directory</span>
+            </div>
+
+            <div class="docs-callout docs-callout-success">
+              <strong>Offline Security:</strong> The compiled build runs 100% locally. No external telemetry calls, tracking pixels, or remote code evaluation.
+            </div>
+          </section>
+
+          <!-- SECTION: Floating HUD -->
+          <section id="floating-hud" class="docs-section">
+            <h2>3. Floating In-Page Recording HUD</h2>
+            <p>
+              While recording is active, a floating control widget renders at the corner of your viewport. It is injected into a closed <strong>Shadow DOM</strong> (<code>&lt;workflow-recorder-controller&gt;</code>) so it never interferes with page stylesheets or layout.
+            </p>
+
+            <div class="docs-table-wrap">
+              <table class="docs-table">
+                <thead>
+                  <tr>
+                    <th>HUD Control</th>
+                    <th>Action</th>
+                    <th>Keyboard Shortcut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Record / Pause</strong></td>
+                    <td>Temporarily suspends event capture so you can perform setup steps without recording them.</td>
+                    <td><kbd>Alt + P</kbd></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Stop &amp; Open Editor</strong></td>
+                    <td>Flushes pending keystrokes, stops capture, and launches the full Workflow Editor.</td>
+                    <td><kbd>Ctrl + Shift + S</kbd></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Add Checkpoint Assertion</strong></td>
+                    <td>Enters element inspection mode to click an element and record a text or visibility assertion.</td>
+                    <td><kbd>Alt + A</kbd></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Step Counter &amp; Timer</strong></td>
+                    <td>Displays live elapsed time and total recorded steps with real-time selector scores.</td>
+                    <td>—</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="docs-callout docs-callout-info">
+              <strong>Non-Interference Guarantee:</strong> All elements of the floating controller contain <code>data-workflow-recorder-ignore="true"</code>. The recording content script detects this attribute and discards recorder-originated clicks immediately.
+            </div>
+          </section>
+
+          <!-- SECTION: Action Types Catalog -->
+          <section id="action-catalog" class="docs-section">
+            <h2>4. Action Types &amp; Event Catalog</h2>
+            <p>
+              The recording engine normalizes noisy browser DOM streams into 12 discrete, strongly-typed automation actions:
+            </p>
+
+            <div class="docs-table-wrap">
+              <table class="docs-table">
+                <thead>
+                  <tr>
+                    <th>Action Type</th>
+                    <th>Captured Properties</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>navigate</code></td>
+                    <td><code>url, sanitizedUrl</code></td>
+                    <td>Records top-level page navigations, hash changes, and pushState route transitions.</td>
+                  </tr>
+                  <tr>
+                    <td><code>click</code></td>
+                    <td><code>target, selector, score, button</code></td>
+                    <td>Left, middle, or right click on buttons, links, or interactive elements.</td>
+                  </tr>
+                  <tr>
+                    <td><code>dblclick</code></td>
+                    <td><code>target, selector, score</code></td>
+                    <td>Rapid double-click actions (deduplicated within 200ms).</td>
+                  </tr>
+                  <tr>
+                    <td><code>input</code></td>
+                    <td><code>selector, value, sensitive</code></td>
+                    <td>Debounced atomic text fill. Automatically masks passwords as <code>{{password}}</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><code>select</code></td>
+                    <td><code>selector, value, label</code></td>
+                    <td>Selection of an option in a standard <code>&lt;select&gt;</code> HTML dropdown.</td>
+                  </tr>
+                  <tr>
+                    <td><code>checkbox / radio</code></td>
+                    <td><code>selector, checked</code></td>
+                    <td>Toggling checkbox or radio button inputs with explicit boolean state verification.</td>
+                  </tr>
+                  <tr>
+                    <td><code>scroll</code></td>
+                    <td><code>position: { x, y }</code></td>
+                    <td>Debounced scroll position capture. Triggers after 400ms stabilization.</td>
+                  </tr>
+                  <tr>
+                    <td><code>hover</code></td>
+                    <td><code>selector, durationMs</code></td>
+                    <td>Recorded when the cursor rests over an element longer than 500ms.</td>
+                  </tr>
+                  <tr>
+                    <td><code>newTab / closeTab</code></td>
+                    <td><code>logicalTabId, url</code></td>
+                    <td>Lifecycle operations for multi-tab test execution across logical tab keys.</td>
+                  </tr>
+                  <tr>
+                    <td><code>assertText</code></td>
+                    <td><code>selector, expectedText, matchType</code></td>
+                    <td>Verifies that target element contains or strictly equals the expected text.</td>
+                  </tr>
+                  <tr>
+                    <td><code>assertVisible</code></td>
+                    <td><code>selector, state</code></td>
+                    <td>Asserts that an element is visible, hidden, or attached to the DOM.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- SECTION: 3-Panel Workflow Editor -->
+          <section id="editor-overview" class="docs-section">
+            <h2>5. The 3-Panel Workflow Editor</h2>
+            <p>
+              After stopping a recording, your workflow opens in the developer-grade 3-panel editor:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0;">
+              <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
+                <h4 style="color: var(--primary); margin-bottom: 8px;">Panel 1: Step Hierarchy</h4>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                  Reorder steps via drag-and-drop, toggle steps active or disabled, delete mis-clicks, and add custom sleep intervals or assertion checkpoints.
+                </p>
+              </div>
+
+              <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
+                <h4 style="color: var(--primary); margin-bottom: 8px;">Panel 2: Step Inspector</h4>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                  Inspect ranked selector candidates, override locators manually, adjust step timeouts (default: 30,000ms), and configure retry backoff limits.
+                </p>
+              </div>
+
+              <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
+                <h4 style="color: var(--primary); margin-bottom: 8px;">Panel 3: Code &amp; Variables</h4>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                  Real-time syntax-highlighted code output across Playwright, Puppeteer, Selenium, and Cypress. Manage parameterized variables and export scripts.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION: Variables & Parameters -->
+          <section id="variables" class="docs-section">
+            <h2>6. Dynamic Variables &amp; Parameterization</h2>
+            <p>
+              Hardcoded test data leads to fragile test suites. Workflow Recorder allows you to parameterize inputs with mustache or template literals: <code>${variable_name}</code> or <code>{{variable_name}}</code>.
+            </p>
+
+            <h3>Defining Variables</h3>
+            <p>
+              In the editor's Variables Tab, create named variables with default values:
+            </p>
+
+            <div style="background: var(--bg-code); padding: 18px 22px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 20px;">
+              <code>{</code><br/>
+              &nbsp;&nbsp;<code>"username": "tester@enterprise.io",</code><br/>
+              &nbsp;&nbsp;<code>"environment_url": "https://staging.app.io",</code><br/>
+              &nbsp;&nbsp;<code>"search_term": "Mechanical Keyboard"</code><br/>
+              <code>}</code>
+            </div>
+
+            <p>
+              In your test steps, replace literal inputs with <code>${username}</code>. When exported to Playwright TypeScript, the exporter generates a strongly-typed TypeScript interface automatically:
+            </p>
+
+            <div style="background: var(--bg-code); padding: 18px 22px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.88rem; margin-bottom: 20px;">
+              <code>interface WorkflowVariables {</code><br/>
+              &nbsp;&nbsp;<code>username: string;</code><br/>
+              &nbsp;&nbsp;<code>environment_url: string;</code><br/>
+              &nbsp;&nbsp;<code>search_term: string;</code><br/>
+              <code>}</code>
+            </div>
+          </section>
+
+          <!-- SECTION: Assertions -->
+          <section id="assertions" class="docs-section">
+            <h2>7. Assertions &amp; Verifications</h2>
+            <p>
+              A workflow without assertions is merely an interaction script. Workflow Recorder provides multiple built-in verification types:
+            </p>
+            
+            <ul style="margin-left: 24px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px;">
+              <li><strong>Text Assertion:</strong> Verifies that an element contains expected text (e.g. <code>Registration Complete</code>).</li>
+              <li><strong>Visibility Assertion:</strong> Checks that a modal, toast notice, or error alert is visible or detached.</li>
+              <li><strong>URL Validation:</strong> Asserts that the browser URL matches an exact string or regular expression pattern.</li>
+              <li><strong>Visual Snapshot Checkpoint:</strong> Captures a full-page or element screenshot stored locally in IndexedDB.</li>
+            </ul>
+          </section>
+
+          <!-- SECTION: CI/CD & GitHub Actions -->
+          <section id="cicd" class="docs-section">
+            <h2>8. CI/CD Integration &amp; Automated Execution</h2>
+            <p>
+              Scripts exported by Workflow Recorder are 100% standard Playwright, Puppeteer, or Selenium scripts. They execute without any proprietary dependencies or runner wrappers.
+            </p>
+
+            <h3>Sample GitHub Actions Workflow</h3>
+            <p>Save the following as <code>.github/workflows/e2e.yml</code> in your repository:</p>
+
+            <div style="background: var(--bg-code); padding: 18px 22px; border-radius: var(--radius-md); border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.84rem; line-height: 1.65; overflow-x: auto; margin-bottom: 20px;">
+              <code>name: End-to-End Test Suite</code><br/>
+              <code>on: [push, pull_request]</code><br/>
+              <code>jobs:</code><br/>
+              <code>&nbsp;&nbsp;test:</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;runs-on: ubuntu-latest</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;steps:</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v4</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/setup-node@v4</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with: { node-version: 20 }</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npm ci</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npx playwright install --with-deps</code><br/>
+              <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- run: npx playwright test</code>
+            </div>
+          </section>
+
+          <!-- SECTION: Troubleshooting & FAQ -->
+          <section id="troubleshooting" class="docs-section">
+            <h2>9. Troubleshooting &amp; Frequently Asked Questions</h2>
+            
+            <h3>Why did my recording miss a dynamic single-page route change?</h3>
+            <p>
+              Modern SPAs (Next.js, Remix, React Router) use HTML5 <code>history.pushState()</code>. Ensure the active tab remains focused so the content script listener can observe the URL mutation.
+            </p>
+
+            <h3>How do I handle cross-domain iframes?</h3>
+            <p>
+              By default, Chrome MV3 content scripts execute in all frames where matching host permissions apply. When recording inside an iframe, Workflow Recorder binds a <code>frameLocator()</code> chain to the parent window context.
+            </p>
+
+            <h3>Where is my workflow data stored?</h3>
+            <p>
+              All workflow definitions, step timelines, and screenshot blobs are stored in your browser's local <strong>IndexedDB</strong> under the database name <code>workflow_recorder_db</code>. No data is ever transmitted to remote cloud servers.
+            </p>
+          </section>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/icon-32.png" alt="Workflow Recorder Icon" width="24" height="24" />
+            <span>Workflow Recorder</span>
+          </div>
+          <p class="footer-desc">
+            Production-quality, privacy-first Google Chrome Extension (Manifest V3) that records browser interactions and generates resilient test automation scripts.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">License: MIT Open Source</div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Features &amp; Engine</a></li>
+            <li><a href="index.html#demo">Live Sandbox</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="exporters.html">Exporters Studio</a></li>
+            <li><a href="index.html#comparison">Comparison</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Frameworks</h4>
+          <ul class="footer-links">
+            <li><a href="exporters.html">Playwright (TS/JS)</a></li>
+            <li><a href="exporters.html">Puppeteer Node.js</a></li>
+            <li><a href="exporters.html">Selenium Python</a></li>
+            <li><a href="exporters.html">Cypress E2E</a></li>
+            <li><a href="exporters.html">JSON &amp; YAML Specs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Installation</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="js-open-install-modal">Chrome Web Store</a></li>
+            <li><a href="docs.html#install">Developer Mode Guide</a></li>
+            <li><a href="features.html#selector-engine">Selector Intelligence</a></li>
+            <li><a href="privacy.html">Privacy &amp; Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Workflow Recorder. Released under the MIT License.</div>
+        <div>Google Chrome is a trademark of Google LLC. Workflow Recorder is an independent open-source project.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INSTALL MODAL -->
+  <div id="install-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <img src="assets/icon-32.png" alt="Workflow Recorder" width="28" height="28" />
+          <h3 id="modal-title" class="modal-title">Install Workflow Recorder</h3>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Installation Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Chrome Web Store</span>
+            <span style="font-size: 0.72rem; color: var(--primary); font-weight: 800; background: var(--primary-light); padding: 2px 8px; border-radius: 9999px;">RECOMMENDED</span>
+          </div>
+          <p class="modal-option-desc">Install directly into Google Chrome, Microsoft Edge, Brave, or Opera with 1 click.</p>
+          <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" class="btn btn-chrome" style="width: 100%;">
+            <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+              <circle cx="12" cy="12" r="4" fill="#FFFFFF"/>
+            </svg>
+            <span>Open in Chrome Web Store</span>
+          </a>
+        </div>
+
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Build from Source (Developer Mode)</span>
+            <span style="font-size: 0.72rem; color: var(--success); font-weight: 800; background: var(--success-bg); padding: 2px 8px; border-radius: 9999px;">OPEN SOURCE</span>
+          </div>
+          <p class="modal-option-desc">Compile locally with <code>npm run build</code> and load the unpacked <code>dist/</code> directory in <code>chrome://extensions</code>.</p>
+          <a href="docs.html#install" class="btn btn-secondary" style="width: 100%; text-align: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>View Developer Build Guide</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

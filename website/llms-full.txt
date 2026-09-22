@@ -1,0 +1,97 @@
+# Workflow Recorder — Complete Technical Reference for AI Models
+
+## 1. System Identity
+- **Name:** Workflow Recorder
+- **Platform:** Google Chrome Extension (Manifest V3 certified)
+- **Supported Browsers:** Google Chrome, Microsoft Edge, Brave, Opera, Chromium (version 114+)
+- **Primary Function:** Record human web browser interactions and compile them into clean, production-grade test automation scripts for Playwright, Puppeteer, Selenium, and Cypress.
+- **License:** Open Source MIT
+- **Privacy Model:** 100% Client-Side, 0 external network requests, local IndexedDB persistence, air-gapped safe.
+
+## 2. Architecture & Selector Engine
+The core selector engine (`src/core/selector-engine.ts`) uses a ranked 7-tier candidate hierarchy:
+1. **Tier 1 (Explicit Test Attributes):** `[data-testid="..."]`, `[data-test="..."]`, `[data-cy="..."]`, `[data-qa="..."]`, and non-dynamic `#id`. (Score: 0.95 - 1.00)
+2. **Tier 2 (Accessible Semantics & ARIA):** `aria-label`, `role` + accessible name, `<label for="...">`. (Score: 0.90 - 0.92)
+3. **Tier 3 (Stable Form Attributes):** `name`, `type`, `placeholder`, and semantic classes. (Score: 0.84 - 0.85)
+4. **Tier 4 (Structural XPath):** Attribute-anchored (`//button[@name='save']`) and text-anchored (`//button[normalize-space()='Submit']`). (Score: 0.65 - 0.70)
+5. **Tier 5 (Ancestor-Scoped Hierarchical Fallback):** Relative CSS chains anchored to the nearest unique ancestor (`#container > ul > li:nth-child(2) > a`). (Score: 0.40 - 0.48)
+6. **Dynamic Pattern Rejection:** Identifies and strips dynamic build-time classes including CSS-in-JS (`css-182jsd`, `sc-bdVaJa`), Tailwind arbitrary classes (`[color:#123456]`), UUIDs, and timestamps.
+7. **Live DOM Validation:** Validates candidates via `document.querySelectorAll()` to ensure uniqueness (1:1 element match) and element actionability.
+
+## 3. Event Normalization & Noise Filtering
+The Content Script Normalizer (`src/core/event-normalizer.ts`) converts noisy raw DOM events into discrete steps:
+- **Keystroke Grouping:** Buffers individual keypresses and flushes an atomic `input` step upon blur, Enter/Tab key, or an 800ms inactivity window.
+- **Scroll Debouncing:** Gathers wheel events into a 400ms debounce window and records settled `{ x, y }` coordinates.
+- **Click Merging:** Merges input focus clicks directly into text fills; converts rapid double-clicks (<200ms) into `dblclick`.
+- **Controller Isolation:** The on-page floating recording HUD is isolated inside `<workflow-recorder-controller>` Shadow DOM with `data-workflow-recorder-ignore="true"`. Events from the controller are immediately discarded to prevent self-recording loops.
+
+## 4. PrivacyGuard Security Model
+- **Zero Telemetry:** Exactly 0 outgoing HTTP/HTTPS calls (`fetch`, `XMLHttpRequest`, `navigator.sendBeacon` are strictly unused).
+- **Password Masking:** Any input with `type="password"` is intercepted at the listener level. Plaintext passwords never enter memory or storage and are replaced with `{{password}}`.
+- **Sensitive Field Regex:** Scans attributes for `credit_card`, `cvv`, `ssn`, `bank_account`, `otp`, `auth_token`, and flags them as `sensitive: true`.
+- **Local Storage:** All workflows, steps, and optional screenshot blobs reside in local IndexedDB (`workflow_recorder_db`).
+
+## 5. Exporter Targets & Sample Code
+
+### Playwright TypeScript (`.spec.ts`)
+```typescript
+import { test, expect } from '@playwright/test';
+
+interface WorkflowVariables {
+  username: string;
+}
+
+const variables: WorkflowVariables = {
+  username: 'engineer@enterprise.io',
+};
+
+test('Customer Login Workflow', async ({ page }) => {
+  await page.goto('https://app.example.com/login');
+  await page.locator('[data-testid="email-input"]').fill(variables.username);
+  await page.locator('input[name="password"]').fill(process.env.TEST_PASSWORD || 'SecretToken');
+  await page.locator('button[type="submit"]').click();
+  await expect(page.locator('.user-avatar')).toBeVisible();
+});
+```
+
+### Selenium Python (`.py`)
+```python
+import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()
+wait = WebDriverWait(driver, 15)
+
+try:
+    driver.get("https://app.example.com/login")
+    email = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='email-input']")))
+    email.send_keys("engineer@enterprise.io")
+    driver.find_element(By.NAME, "password").send_keys(os.getenv("TEST_PASSWORD", "SecretToken"))
+    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".user-avatar")))
+finally:
+    driver.quit()
+```
+
+## 6. Comparison with Alternative Recorders
+| Feature | Workflow Recorder | Headless Recorder | Chrome DevTools Recorder | Selenium IDE |
+| :--- | :--- | :--- | :--- | :--- |
+| **7-Tier Selector Scoring** | Yes (0-100 score) | Basic CSS/XPath | Basic | Fragile XPath |
+| **Dynamic Class Rejection** | Yes (prunes CSS-in-JS) | No | No | No |
+| **Export to Playwright TS** | Yes (with types) | Yes (JS only) | Plugin required | No |
+| **Export to Selenium Python** | Yes | No | No | Yes (Selenese) |
+| **Export to Cypress** | Yes | No | No | No |
+| **Zero Telemetry Guarantee** | 100% Local (0 calls)| Third-party links | Built-in Google | Varies |
+| **Shadow DOM Piercing** | Native | Partial | Native | No |
+| **Variable Binding (${var})** | Yes | No | No | Basic |
+
+## 7. URL Map
+- Home: https://workflowrecorder.dev/
+- Features: https://workflowrecorder.dev/features.html
+- Documentation: https://workflowrecorder.dev/docs.html
+- Exporters: https://workflowrecorder.dev/exporters.html
+- Privacy: https://workflowrecorder.dev/privacy.html
+- Sitemap: https://workflowrecorder.dev/sitemap.xml

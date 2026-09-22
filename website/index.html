@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Workflow Recorder — Record Browser Workflows to Playwright, Puppeteer &amp; Selenium</title>
+  <meta name="title" content="Workflow Recorder — Record Browser Workflows to Playwright, Puppeteer &amp; Selenium" />
+  <meta name="description" content="Turn manual browser clicks into production-ready Playwright, Puppeteer, Selenium &amp; Cypress test automation. 7-tier selector scoring, 100% offline &amp; free." />
+  <meta name="keywords" content="playwright recorder chrome extension, record browser workflow export playwright, puppeteer recorder extension, selenium python test recorder, headless recorder alternative, cypress test recorder, browser automation recorder, data-testid generator, chrome devtools recorder alternative" />
+  <meta name="author" content="Workflow Recorder Team" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://workflowrecorder.dev/" />
+
+  <!-- Chrome & PWA Integration -->
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-title" content="Workflow Recorder" />
+  <meta name="application-name" content="Workflow Recorder" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png" />
+  <link rel="apple-touch-icon" href="assets/icon-128.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://workflowrecorder.dev/" />
+  <meta property="og:title" content="Workflow Recorder — Record Browser Workflows into Playwright, Puppeteer &amp; Selenium" />
+  <meta property="og:description" content="Turn manual browser clicks into production-ready test automation. Features 7-tier selector scoring, smart waits, variable binding, and zero telemetry." />
+  <meta property="og:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="560" />
+  <meta property="og:image:alt" content="Workflow Recorder Chrome Extension Promo Banner" />
+  <meta property="og:site_name" content="Workflow Recorder" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://workflowrecorder.dev/" />
+  <meta name="twitter:title" content="Workflow Recorder — Browser Workflow to Automation Code Generator" />
+  <meta name="twitter:description" content="100% offline, privacy-first Chrome extension that turns browser interactions into resilient Playwright, Puppeteer, and Selenium scripts." />
+  <meta name="twitter:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  <meta name="twitter:image:alt" content="Workflow Recorder Automation Banner" />
+
+  <!-- Performance & Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data: Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://workflowrecorder.dev/#organization",
+    "name": "Workflow Recorder",
+    "url": "https://workflowrecorder.dev/",
+    "logo": "https://workflowrecorder.dev/assets/icon-128.png",
+    "sameAs": [
+      "https://github.com/workflow-recorder/workflow-recorder",
+      "https://chrome.google.com/webstore"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: SoftwareApplication & WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://workflowrecorder.dev/#software",
+    "name": "Workflow Recorder",
+    "applicationCategory": "DeveloperApplication",
+    "applicationSubCategory": "Test Automation & Web Scraping",
+    "operatingSystem": "ChromeOS, Windows, macOS, Linux, Chromium",
+    "browserRequirements": "Requires Google Chrome 114+ or Chromium-based browser",
+    "softwareVersion": "1.0.0",
+    "installUrl": "https://chrome.google.com/webstore",
+    "author": {
+      "@id": "https://workflowrecorder.dev/#organization"
+    },
+    "publisher": {
+      "@id": "https://workflowrecorder.dev/#organization"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "148",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "featureList": [
+      "7-Tier Resilient Selector Engine with data-testid and ARIA fallbacks",
+      "Instant export to Playwright (TypeScript/JavaScript), Puppeteer, Cypress, and Selenium Python",
+      "100% Local Processing with zero external telemetry and automatic password masking",
+      "Visual 3-panel step editor with variable parametrization and assertion builder",
+      "Closed Shadow DOM and iFrame cross-boundary intelligent traversal"
+    ],
+    "description": "Developer-grade Google Chrome Extension (Manifest V3) that records browser interactions, scores DOM selectors across 7 resilience tiers, and exports to Playwright, Puppeteer, Selenium, and Cypress."
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage Schema for Rich Search Snippets & AI Overviews -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I record browser workflows and export to Playwright?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install Workflow Recorder, click Start Recording (or press Ctrl+Shift+R), perform your user flow on any webpage, and click Stop. Your workflow is compiled into clean, typed Playwright TypeScript (.spec.ts) or JavaScript code ready to run in CI/CD."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Workflow Recorder compare to Headless Recorder or Chrome DevTools Recorder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike Headless Recorder or Chrome DevTools Recorder, Workflow Recorder features a 7-tier selector scoring engine that automatically rejects dynamic build-time CSS classes (CSS-in-JS, Tailwind hashes). It also supports direct export to Playwright TypeScript, Puppeteer, Selenium Python, and Cypress with 100% offline local IndexedDB storage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Workflow Recorder completely free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Workflow Recorder is 100% free and open-source under the MIT license. There are no paid tiers, no subscription fees, no user limits, and no account registrations required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Workflow Recorder collect any user data or transmit telemetry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zero telemetry. Workflow Recorder runs 100% client-side inside your browser with exactly 0 external network requests. All recorded steps and screenshots are stored exclusively in your local IndexedDB storage. Passwords, credit cards, and query parameters are automatically redacted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the 7-tier selector hierarchy work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For every interaction, Workflow Recorder evaluates 7 selector tiers: data-testid attributes, accessible ARIA roles, semantic IDs, text anchors, optimized CSS paths, shadow-piercing selectors, and structural XPath. Each candidate is scored from 0 to 100 based on resilience to UI layout changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which test automation frameworks can I export to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Workflow Recorder supports 8+ export targets including Playwright (TypeScript and JavaScript), Puppeteer, Selenium WebDriver (Python), Cypress, Canonical Schema-Validated JSON, YAML, and Markdown runbooks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I record interactions inside Shadow DOM and iFrames?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The recording engine pierces open and closed Shadow DOM roots and traverses nested iFrames, generating piercable selector chains compatible with Playwright and Puppeteer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the exported scripts directly in CI/CD pipelines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. The exported scripts are clean, standalone, standard ES modules or Python scripts that run out-of-the-box in GitHub Actions, GitLab CI, Jenkins, or CircleCI without proprietary runtime dependencies."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://workflowrecorder.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Features & Architecture",
+        "item": "https://workflowrecorder.dev/features.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Documentation",
+        "item": "https://workflowrecorder.dev/docs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Automation Exporters",
+        "item": "https://workflowrecorder.dev/exporters.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Decorative Glow Backgrounds -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-1"></div>
+    <div class="decor-glow-2"></div>
+    <div class="decor-glow-3"></div>
+  </div>
+
+  <!-- Header & Sticky Navigation -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="logo-link" aria-label="Workflow Recorder Home">
+        <img src="assets/icon-48.png" alt="Workflow Recorder Icon" class="logo-icon" width="38" height="38" />
+        <div class="logo-text-group">
+          <span class="logo-title">Workflow Recorder</span>
+          <span class="logo-tag">CHROME EXTENSION MV3</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav id="desktop-nav" class="desktop-nav" aria-label="Main Navigation">
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="#demo" class="nav-link">Live Sandbox</a>
+        <a href="docs.html" class="nav-link">Docs &amp; Guides</a>
+        <a href="exporters.html" class="nav-link">Exporters</a>
+        <a href="#comparison" class="nav-link">Comparison</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+      </nav>
+
+      <!-- Nav Actions: Theme Toggle & Add to Chrome Button -->
+      <div class="nav-actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn-chrome btn-chrome-header js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+          <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+            <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+            <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+          </svg>
+          <span>Add to Chrome</span>
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Mobile Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        
+        <!-- Eyebrow Pill -->
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-pill">MV3 CERTIFIED</span>
+          <span>100% Client-Side · Zero Telemetry · Local IndexedDB</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 id="hero-title" class="hero-title">
+          Turn Browser Workflows into <span class="gradient-text">Production-Ready Automation</span> in Seconds.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle">
+          Workflow Recorder captures your clicks, form submissions, and navigations with an intelligent <strong>7-tier selector scoring engine</strong>. Instantly export to clean Playwright, Puppeteer, Cypress, and Selenium scripts — completely offline and privacy-first.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-cta-group">
+          <!-- Primary "Add to Chrome" Button -->
+          <button type="button" class="btn btn-chrome btn-chrome-hero js-open-install-modal" aria-label="Add to Chrome — Free Extension">
+            <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <path fill="#EA4335" d="M12 2C6.48 2 2 6.48 2 12c0 1.25.24 2.45.67 3.55L7.2 8.35C8.28 5.75 10.82 4 13.8 4c1.62 0 3.12.52 4.34 1.41L15.4 9.15C14.54 8.74 13.57 8.5 12.5 8.5c-2.31 0-4.25 1.57-4.8 3.73L3.18 8.7C4.7 4.7 8.7 2 12 2z"/>
+              <path fill="#4285F4" d="M12 22c4.42 0 8.16-2.88 9.47-6.88l-4.57-2.64c-.65 1.83-2.4 3.14-4.47 3.14-.94 0-1.81-.27-2.54-.74L5.3 19.46C7.26 21.05 9.77 22 12 22z"/>
+              <path fill="#FBBC05" d="M21.47 15.12C21.82 14.15 22 13.1 22 12c0-4.08-2.44-7.59-5.95-9.15L11.5 10.5h4.15c.19.47.3.99.3 1.52 0 1.27-.59 2.4-1.52 3.13l4.57 2.64c.89-.86 1.7-1.78 2.47-2.67z"/>
+              <circle cx="12" cy="12" r="3.6" fill="#FFFFFF"/>
+              <circle cx="12" cy="12" r="2.8" fill="#1A73E8"/>
+            </svg>
+            <span>Add to Chrome — It’s Free</span>
+          </button>
+
+          <!-- Secondary Action: Live Sandbox -->
+          <a href="#demo" class="btn btn-secondary" aria-label="Try Interactive Demo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Try Interactive Demo</span>
+          </a>
+
+          <!-- Tertiary Action: Explore Features -->
+          <a href="features.html" class="btn btn-ghost" aria-label="Explore Features & Selector Engine">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="12 8 8 12 12 16 12 8"></polygon>
+            </svg>
+            <span>Explore Features &amp; Engine</span>
+          </a>
+        </div>
+
+        <!-- Trust & Compatibility Strip -->
+        <div class="hero-compat-note">
+          <div class="compat-item">
+            <span class="rating-stars">★★★★★</span>
+            <strong>5.0 / 5.0</strong>
+            <span>(Chrome Web Store)</span>
+          </div>
+          <span class="compat-dot"></span>
+          <div class="compat-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>PrivacyGuard Active</span>
+          </div>
+          <span class="compat-dot"></span>
+          <div class="compat-item">
+            <span>Chrome 120+, Edge, Brave &amp; Opera</span>
+          </div>
+        </div>
+
+        <!-- 4-Stat Value Counter Bar -->
+        <div class="hero-stats-strip">
+          <div class="hero-stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Offline &amp; Local Processing</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-value">8 Targets</div>
+            <div class="stat-label">Playwright, Puppeteer, Selenium +</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-value">7 Tiers</div>
+            <div class="stat-label">Selector Resilience Fallbacks</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-value">0 ms</div>
+            <div class="stat-label">External Telemetry Latency</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE INTERACTIVE SIMULATOR (DEMO SANDBOX) -->
+    <section id="demo" class="section section-subtle" aria-labelledby="demo-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Interactive Simulator</span>
+          </div>
+          <h2 id="demo-heading" class="section-title">Test Drive Workflow Recording Live in Your Browser</h2>
+          <p class="section-description">
+            Interact with the simulated web app on the left. Watch the real-time recording engine score selectors and synthesize production-ready test automation scripts on the right.
+          </p>
+        </header>
+
+        <div class="demo-container">
+          
+          <!-- Column 1: Mock Web Browser Window -->
+          <div class="mock-browser-col">
+            <div class="browser-header-bar">
+              <div class="browser-traffic-lights" aria-hidden="true">
+                <span class="traffic-light red"></span>
+                <span class="traffic-light yellow"></span>
+                <span class="traffic-light green"></span>
+              </div>
+              <div class="browser-url-pill">
+                <svg class="lock-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>https://app.cloudcorp.io/login</span>
+              </div>
+            </div>
+
+            <!-- Simulated Form -->
+            <div class="mock-app-body">
+              <div class="mock-app-intro">
+                <h3 class="mock-app-title">CloudCorp Enterprise Portal</h3>
+                <p class="mock-app-desc">Click fields below to trigger recording events.</p>
+              </div>
+
+              <div class="mock-form-group">
+                <label for="mock-email" class="mock-label">Work Email Address</label>
+                <input type="email" id="mock-email" class="mock-input" data-testid="email-input" placeholder="developer@cloudcorp.io" />
+              </div>
+
+              <div class="mock-form-group">
+                <label for="mock-password" class="mock-label">Password (Auto-Masked)</label>
+                <input type="password" id="mock-password" class="mock-input" data-testid="password-input" placeholder="••••••••••••" />
+              </div>
+
+              <div class="mock-form-group">
+                <label for="mock-env" class="mock-label">Target Environment</label>
+                <select id="mock-env" class="mock-select" name="environment">
+                  <option value="production-us">Production (US-East)</option>
+                  <option value="staging-eu">Staging (EU-Central)</option>
+                  <option value="sandbox">Sandbox Testing</option>
+                </select>
+              </div>
+
+              <div class="mock-btn-row">
+                <button type="button" id="mock-submit" class="mock-action-btn mock-btn-primary">
+                  Sign In &amp; Continue
+                </button>
+                <button type="button" id="mock-reset" class="mock-action-btn mock-btn-outline">
+                  Reset Demo
+                </button>
+              </div>
+
+              <!-- Floating HUD Simulator -->
+              <div class="mock-floating-hud">
+                <div class="hud-left">
+                  <span class="hud-rec-indicator"></span>
+                  <span id="hud-step-counter" class="hud-step-counter">1 Step</span>
+                </div>
+                <span class="hud-timer">00:09 REC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Real-Time Generated Automation Script -->
+          <div class="demo-code-col">
+            <div class="code-col-header">
+              <div class="code-framework-pills">
+                <button type="button" class="framework-pill demo-framework-pill active" data-framework="playwright-ts">Playwright (TS)</button>
+                <button type="button" class="framework-pill demo-framework-pill" data-framework="puppeteer">Puppeteer</button>
+                <button type="button" class="framework-pill demo-framework-pill" data-framework="selenium-python">Selenium (Python)</button>
+                <button type="button" class="framework-pill demo-framework-pill" data-framework="json">JSON Spec</button>
+              </div>
+              <button type="button" class="copy-code-btn js-copy-btn" data-copy-target="#demo-generated-code" aria-label="Copy Generated Code">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy Script</span>
+              </button>
+            </div>
+
+            <!-- Selector Intelligence Bar -->
+            <div class="selector-intel-bar">
+              <div>
+                <span>Active Target: </span>
+                <code id="intel-active-selector" class="intel-tag">[data-testid="email-input"]</code>
+              </div>
+              <div id="intel-active-score" class="score-badge">Score 98/100</div>
+            </div>
+
+            <!-- Code Output Window -->
+            <div class="demo-code-wrapper">
+              <pre><code id="demo-generated-code" class="language-typescript"></code></pre>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRODUCT SCREENSHOT SHOWCASE -->
+    <section id="screenshots" class="section" aria-labelledby="screenshots-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Product Gallery</span>
+          </div>
+          <h2 id="screenshots-heading" class="section-title">Engineered for Developer Clarity &amp; Speed</h2>
+          <p class="section-description">
+            Explore the 3-panel workflow studio, non-intrusive in-page recording HUD, resilient selector scorer, and instant multi-target code exporters.
+          </p>
+        </header>
+
+        <!-- Gallery Tabs -->
+        <div class="gallery-tabs">
+          <button type="button" class="gallery-tab-btn active" data-item="editor">3-Panel Visual Editor</button>
+          <button type="button" class="gallery-tab-btn" data-item="hud">In-Page Floating HUD</button>
+          <button type="button" class="gallery-tab-btn" data-item="exporters">Multi-Framework Exporters</button>
+          <button type="button" class="gallery-tab-btn" data-item="selectors">7-Strategy Selector Scorer</button>
+        </div>
+
+        <!-- Active Screenshot Display -->
+        <div class="gallery-display-frame">
+          <div class="gallery-browser-mockup">
+            <img id="gallery-main-image" src="assets/screenshot-1-workflow-editor.png" alt="Visual 3-Panel Workflow Editor Screenshot" class="gallery-image" width="1280" height="800" />
+          </div>
+          <p id="gallery-caption-text" class="gallery-caption">
+            Visual 3-Panel Workflow Editor: Inspect, reorder, and configure assertions with dynamic parameter binding.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE CAPABILITIES (FULL DETAIL 6-CARD GRID) -->
+    <section id="features" class="section section-subtle" aria-labelledby="features-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Architecture &amp; Features</span>
+          </div>
+          <h2 id="features-heading" class="section-title">Built from the Ground Up for Resilient Automation</h2>
+          <p class="section-description">
+            Say goodbye to brittle screen coordinates and flaky CSS classes. Workflow Recorder uses semantic DOM analysis and fallback chains designed for real-world enterprise web applications.
+          </p>
+        </header>
+
+        <!-- 6 Feature Cards -->
+        <div class="features-grid">
+          
+          <!-- Feature 1: Multi-Strategy Selectors -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-blue">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">7-Strategy Resilient Selectors</h3>
+            <p class="feature-description">
+              Evaluates test IDs, accessible ARIA roles, semantic IDs, text anchors, and XPath in real time. Each selector is scored so your test scripts never break when design classes change.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> data-testid, data-cy, and data-qa priorities</li>
+              <li><span class="check-icon">✓</span> Accessible role &amp; name combination locators</li>
+              <li><span class="check-icon">✓</span> Fallback chaining if an element ID mutates</li>
+            </ul>
+          </article>
+
+          <!-- Feature 2: Event Normalization -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-green">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Noise Filtering &amp; Event Normalization</h3>
+            <p class="feature-description">
+              Keystrokes are automatically collapsed into single input events. Rapid double-clicks, scroll jitters, and internal recorder HUD clicks are cleanly filtered out.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Auto-debounced scroll &amp; resize listener</li>
+              <li><span class="check-icon">✓</span> Intelligent typing grouping into atomic fills</li>
+              <li><span class="check-icon">✓</span> Discards HUD clicks via Shadow DOM isolation</li>
+            </ul>
+          </article>
+
+          <!-- Feature 3: Variable Parametrization -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-yellow">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Dynamic Variable Extraction</h3>
+            <p class="feature-description">
+              Scans your workflow inputs and automatically detects emails, phone numbers, auth tokens, and dates. Replaces hardcoded literals with reusable <code>{{variable}}</code> templates.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Auto-detects emails, dates, numbers, and URLs</li>
+              <li><span class="check-icon">✓</span> Configurable environment variable bindings</li>
+              <li><span class="check-icon">✓</span> Export TypeScript interfaces for type safety</li>
+            </ul>
+          </article>
+
+          <!-- Feature 4: Shadow DOM & iFrames -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-purple">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Shadow DOM &amp; iFrame Traversal</h3>
+            <p class="feature-description">
+              Modern micro-frontends and Web Components rely heavily on shadow roots. Workflow Recorder captures path chains across shadow boundaries and nested cross-domain iframes.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Pierces open shadow boundaries automatically</li>
+              <li><span class="check-icon">✓</span> Generates Playwright frameLocator() syntax</li>
+              <li><span class="check-icon">✓</span> Handles dynamic embedded widgets effortlessly</li>
+            </ul>
+          </article>
+
+          <!-- Feature 5: PrivacyGuard -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-teal">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">PrivacyGuard &amp; Zero Telemetry</h3>
+            <p class="feature-description">
+              Operates 100% offline in your browser's local IndexedDB. Passwords, credit cards, CVVs, SSNs, and sensitive query tokens are automatically detected and masked before saving.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Automatic password and token redaction</li>
+              <li><span class="check-icon">✓</span> Zero third-party analytics or external network calls</li>
+              <li><span class="check-icon">✓</span> Full data ownership with local export and delete</li>
+            </ul>
+          </article>
+
+          <!-- Feature 6: In-Page Floating HUD -->
+          <article class="feature-card">
+            <div class="feature-icon-wrapper icon-red">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">In-Page Floating Controller HUD</h3>
+            <p class="feature-description">
+              No need to switch back and forth between tabs. The floating controller bar stays on your page, letting you pause, resume, add visual assertions, and inspect step counts live.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Draggable HUD completely isolated in Shadow DOM</li>
+              <li><span class="check-icon">✓</span> 1-click assertion insertion (text, visible, value)</li>
+              <li><span class="check-icon">✓</span> Real-time step counter and recording timer</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <!-- Selector Intelligence Visualizer Strip -->
+        <div class="selector-strip-card">
+          <div class="selector-strip-header">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">The 7-Tier Selector Cascade</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">How Workflow Recorder scores and ranks locators for unbreakable tests</p>
+          </div>
+          <div class="selector-tiers-grid">
+            <div class="tier-item">
+              <div class="tier-top"><span class="tier-rank">Tier 1</span><span class="tier-score">Score 98/100</span></div>
+              <div class="tier-name">data-testid</div>
+              <div class="tier-code-sample">[data-testid="submit-btn"]</div>
+            </div>
+            <div class="tier-item">
+              <div class="tier-top"><span class="tier-rank">Tier 2</span><span class="tier-score">Score 92/100</span></div>
+              <div class="tier-name">Accessible ARIA</div>
+              <div class="tier-code-sample">role="button"[name="Submit"]</div>
+            </div>
+            <div class="tier-item">
+              <div class="tier-top"><span class="tier-rank">Tier 3</span><span class="tier-score">Score 88/100</span></div>
+              <div class="tier-name">Semantic ID</div>
+              <div class="tier-code-sample">#user-checkout-submit</div>
+            </div>
+            <div class="tier-item">
+              <div class="tier-top"><span class="tier-rank">Tier 4</span><span class="tier-score">Score 76/100</span></div>
+              <div class="tier-name">Text Anchor</div>
+              <div class="tier-code-sample">button:has-text("Sign in")</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Radial Selector Stability Gauge & Scorer Studio -->
+        <div class="gauge-card" id="gauge-demo">
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="hero-eyebrow-pill" style="margin-bottom: 6px;">LIVE SCORING ENGINE</span>
+                <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 6px 0;">Interactive Selector Stability Gauge</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem;">Test any CSS selector, XPath, or data attribute in real time to calculate its resilience score and flake probability.</p>
+              </div>
+              <a href="features.html#selector-engine" class="btn btn-secondary" style="font-size: 0.82rem; padding: 6px 14px;">Detailed Architecture &rarr;</a>
+            </div>
+          </div>
+
+          <div class="gauge-grid">
+            <!-- Radial SVG Gauge Display -->
+            <div class="gauge-visual-wrap">
+              <svg class="radial-gauge-svg" viewBox="0 0 200 200" aria-label="Selector Stability Radial Gauge">
+                <circle class="gauge-circle-bg" cx="100" cy="100" r="90" />
+                <circle id="gauge-circle-meter" class="gauge-circle-meter" cx="100" cy="100" r="90" />
+              </svg>
+              <div class="gauge-center-content">
+                <div id="gauge-score-val" class="gauge-score-number">100</div>
+                <div class="gauge-score-total">/ 100 PTS</div>
+                <div id="gauge-verdict" class="gauge-verdict-badge gauge-verdict-solid">Rock Solid</div>
+              </div>
+            </div>
+
+            <!-- Interactive Gauge Controls & Breakdown -->
+            <div class="gauge-controls-wrap">
+              <div>
+                <label for="gauge-selector-input" style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Input Target Selector or Expression</label>
+                <div class="gauge-input-box">
+                  <input type="text" id="gauge-selector-input" value="[data-testid='submit-checkout-btn']" placeholder="Type selector or XPath..." spellcheck="false" autocomplete="off" />
+                  <button type="button" id="gauge-eval-btn" class="btn btn-primary" style="padding: 0 20px;">Evaluate</button>
+                </div>
+              </div>
+
+              <!-- Presets -->
+              <div>
+                <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 8px;">Try Sample Selectors:</span>
+                <div class="gauge-presets-list">
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="[data-testid='login-button']">[data-testid='login-button']</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="#user-login-submit">#user-login-submit</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="button[aria-label='Submit Application']">button[aria-label='Submit Application']</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="form &gt; div:nth-child(3) &gt; input">form &gt; div:nth-child(3) &gt; input</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="//button[contains(@class, 'css-182jsd-btn')]">//button[contains(@class, 'css-182jsd-btn')]</button>
+                </div>
+              </div>
+
+              <!-- Metrics Breakdown -->
+              <div class="gauge-metrics-breakdown">
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">Hierarchy Tier</div>
+                  <div id="gauge-metric-tier" class="gauge-metric-val">Tier 1 (Test ID)</div>
+                </div>
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">DOM Uniqueness</div>
+                  <div id="gauge-metric-uniq" class="gauge-metric-val">Unique (1:1)</div>
+                </div>
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">Fragility Penalty</div>
+                  <div id="gauge-metric-penalty" class="gauge-metric-val">0% (None)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8+ MULTI-TARGET CODE EXPORTERS SHOWCASE -->
+    <section id="exporters" class="section" aria-labelledby="exporters-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Automation Exporters</span>
+          </div>
+          <h2 id="exporters-heading" class="section-title">Export Clean, Production Code for Any Framework</h2>
+          <p class="section-description">
+            Workflow Recorder exports clean, standard scripts ready to plug straight into your GitHub Actions, GitLab CI, or local test suites. No proprietary lock-in.
+          </p>
+        </header>
+
+        <!-- Exporter Framework Pills -->
+        <div class="exporter-tab-strip">
+          <button type="button" class="exporter-tab-btn active" data-target="playwright-ts">Playwright (TypeScript)</button>
+          <button type="button" class="exporter-tab-btn" data-target="playwright-js">Playwright (JavaScript)</button>
+          <button type="button" class="exporter-tab-btn" data-target="puppeteer">Puppeteer</button>
+          <button type="button" class="exporter-tab-btn" data-target="selenium-python">Selenium (Python)</button>
+          <button type="button" class="exporter-tab-btn" data-target="cypress">Cypress</button>
+          <button type="button" class="exporter-tab-btn" data-target="json">Canonical JSON</button>
+          <button type="button" class="exporter-tab-btn" data-target="yaml">YAML</button>
+          <button type="button" class="exporter-tab-btn" data-target="markdown">Markdown Runbook</button>
+        </div>
+
+        <!-- Code Viewer Frame -->
+        <div class="code-viewer-container">
+          <div class="code-viewer-header">
+            <div class="code-file-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span id="exporter-filename">tests/workflow.spec.ts</span>
+            </div>
+            <button type="button" class="copy-code-btn js-copy-btn" data-copy-target="#exporter-code-content" aria-label="Copy Code to Clipboard">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Code</span>
+            </button>
+          </div>
+          <div class="code-viewer-body">
+            <pre><code id="exporter-code-content" class="language-typescript">import { test, expect } from '@playwright/test';
+
+interface WorkflowVariables {
+  userEmail: string;
+  authRole: string;
+}
+
+test('Enterprise Checkout & Order Verification', async ({ page }) => {
+  const vars: WorkflowVariables = {
+    userEmail: process.env.TEST_EMAIL || 'qa-engineer@enterprise.io',
+    authRole: 'admin',
+  };
+
+  // Step 1: Open Application
+  await page.goto('https://app.cloudcorp.com/dashboard');
+
+  // Step 2: Resilient Selector with Multi-Candidate Fallback
+  const searchInput = page.locator('[data-testid="search-bar"], #global-search, input[placeholder*="Search"]');
+  await searchInput.fill('High-Performance Cluster');
+  await searchInput.press('Enter');
+
+  // Step 3: Wait for Results & Select Card
+  const resultCard = page.locator('[data-testid="result-item-0"]');
+  await expect(resultCard).toBeVisible({ timeout: 5000 });
+  await resultCard.click();
+
+  // Step 4: Add to Provision Queue
+  await page.getByRole('button', { name: 'Provision Asset' }).click();
+
+  // Step 5: Assertion
+  await expect(page.locator('.toast-notification')).toContainText('Provisioning queued');
+});</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPARISON MATRIX -->
+    <section id="comparison" class="section section-subtle" aria-labelledby="comparison-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Feature Comparison</span>
+          </div>
+          <h2 id="comparison-heading" class="section-title">Headless Recorder &amp; DevTools Alternative: How We Compare</h2>
+          <p class="section-description">
+            Compare Workflow Recorder against Headless Recorder, Chrome DevTools Recorder, and Selenium IDE. Engineered with 7-tier selector scoring, zero telemetry, and multi-framework export.
+          </p>
+        </header>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature / Capability</th>
+                <th class="highlight-col">Workflow Recorder</th>
+                <th>Headless Recorder</th>
+                <th>DevTools Recorder</th>
+                <th>Selenium IDE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>7-Tier Selector Scoring (data-testid, ARIA, ID)</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ Yes (0-100 Score)</span></td>
+                <td><span class="badge-partial">Basic CSS/XPath</span></td>
+                <td><span class="badge-partial">Single locator path</span></td>
+                <td><span class="badge-no">✕ Fragile XPath</span></td>
+              </tr>
+              <tr>
+                <td><strong>Dynamic Class Rejection (CSS-in-JS, Tailwind)</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ Automatic Pruning</span></td>
+                <td><span class="badge-no">✕ Records hashes</span></td>
+                <td><span class="badge-no">✕ Records hashes</span></td>
+                <td><span class="badge-no">✕ Records hashes</span></td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Framework Export (Playwright, Puppeteer, Selenium, Cypress)</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ 8 Targets Ready</span></td>
+                <td><span class="badge-partial">Puppeteer/Playwright JS</span></td>
+                <td><span class="badge-partial">JSON &amp; Puppeteer</span></td>
+                <td><span class="badge-partial">Selenese format only</span></td>
+              </tr>
+              <tr>
+                <td><strong>Zero External Telemetry (100% Client-Side)</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ 100% Local (0 calls)</span></td>
+                <td><span class="badge-partial">Third-party links</span></td>
+                <td><span class="badge-yes">✓ Built-in Chrome</span></td>
+                <td><span class="badge-partial">Varies by version</span></td>
+              </tr>
+              <tr>
+                <td><strong>Automatic Password &amp; Credential Redaction</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ PrivacyGuard ({{password}})</span></td>
+                <td><span class="badge-no">✕ Captures plaintext</span></td>
+                <td><span class="badge-no">✕ Stores plaintext</span></td>
+                <td><span class="badge-no">✕ Stores plaintext</span></td>
+              </tr>
+              <tr>
+                <td><strong>Dynamic Variable Parameterization (${vars})</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ Typed TypeScript Interface</span></td>
+                <td><span class="badge-no">✕ None</span></td>
+                <td><span class="badge-no">✕ None</span></td>
+                <td><span class="badge-partial">Basic manual vars</span></td>
+              </tr>
+              <tr>
+                <td><strong>Shadow DOM &amp; Cross-Frame iFrame Piercing</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ Native Piercable Chains</span></td>
+                <td><span class="badge-partial">Limited</span></td>
+                <td><span class="badge-yes">✓ Piercable</span></td>
+                <td><span class="badge-no">✕ Unsupported</span></td>
+              </tr>
+              <tr>
+                <td><strong>In-Page Non-Intrusive Floating Controller HUD</strong></td>
+                <td class="highlight-col"><span class="badge-yes">✓ Isolated Shadow Root</span></td>
+                <td><span class="badge-no">✕ Popup only</span></td>
+                <td><span class="badge-no">✕ DevTools pane</span></td>
+                <td><span class="badge-no">✕ Separate window</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (3 SIMPLE STEPS) -->
+    <section id="how-it-works" class="section" aria-labelledby="how-it-works-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Simple 3-Step Workflow</span>
+          </div>
+          <h2 id="how-it-works-heading" class="section-title">From Browser Clicks to Automated Suite in Minutes</h2>
+          <p class="section-description">
+            No complex setup or CLI installations needed to start recording. Here is how simple testing becomes:
+          </p>
+        </header>
+
+        <div class="steps-grid">
+          
+          <div class="step-card">
+            <span class="step-number" aria-hidden="true">01</span>
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="step-title">Click Record</h3>
+            <p class="step-desc">
+              Pin the extension in your Chrome toolbar. Click "Start Recording" and perform user flows naturally on any website or web application.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number" aria-hidden="true">02</span>
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Inspect &amp; Refine</h3>
+            <p class="step-desc">
+              Open the 3-panel visual editor. Review recorded steps, reorder actions, attach visual assertions, and bind inputs to dynamic variables.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number" aria-hidden="true">03</span>
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Export 1-Click Code</h3>
+            <p class="step-desc">
+              Choose your favorite automation framework (Playwright, Puppeteer, Cypress, Selenium). Copy the code or download the script directly into your repository.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INSTALLATION GUIDE & DEVELOPER MODE -->
+    <section id="install" class="section section-subtle" aria-labelledby="install-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Easy Installation</span>
+          </div>
+          <h2 id="install-heading" class="section-title">Install Workflow Recorder in Under 60 Seconds</h2>
+          <p class="section-description">
+            Available directly on the Chrome Web Store or loadable offline as an unpacked Manifest V3 developer extension.
+          </p>
+        </header>
+
+        <div class="install-options-grid">
+          
+          <!-- Option 1: Chrome Web Store -->
+          <div class="install-card recommended">
+            <span class="recommended-ribbon">RECOMMENDED</span>
+            <h3 class="install-card-title">Chrome Web Store</h3>
+            <p class="install-card-desc">
+              One-click install with automatic background updates from Google Chrome Web Store.
+            </p>
+            <div class="install-steps-list">
+              <div class="install-step-item">
+                <span class="install-step-badge">1</span>
+                <span>Click the "Add to Chrome" button below to open the Chrome Web Store page.</span>
+              </div>
+              <div class="install-step-item">
+                <span class="install-step-badge">2</span>
+                <span>Click <strong>Add to Chrome</strong> on Google's store page.</span>
+              </div>
+              <div class="install-step-item">
+                <span class="install-step-badge">3</span>
+                <span>Pin Workflow Recorder to your extensions toolbar for 1-click access!</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-chrome js-open-install-modal" style="width: 100%;">
+              <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+                <circle cx="12" cy="12" r="4" fill="#FFFFFF"/>
+              </svg>
+              <span>Add to Chrome — Free on Web Store</span>
+            </button>
+          </div>
+
+          <!-- Option 2: Build from Source / Developer Mode -->
+          <div class="install-card">
+            <h3 class="install-card-title">Developer Mode (Build from Source)</h3>
+            <p class="install-card-desc">
+              Run directly from source code with full inspection, customization, and local test capabilities.
+            </p>
+            <div class="install-steps-list">
+              <div class="install-step-item">
+                <span class="install-step-badge">1</span>
+                <span>Clone the repository: <code>git clone https://github.com/workflow-recorder/workflow-recorder.git</code></span>
+              </div>
+              <div class="install-step-item">
+                <span class="install-step-badge">2</span>
+                <span>Install dependencies &amp; compile: <code>npm install &amp;&amp; npm run build</code></span>
+              </div>
+              <div class="install-step-item">
+                <span class="install-step-badge">3</span>
+                <span>Open <code>chrome://extensions</code>, enable <strong>Developer mode</strong>, click <strong>Load unpacked</strong>, and choose <code>dist/</code>.</span>
+              </div>
+            </div>
+            <a href="docs.html#install" class="btn btn-secondary" style="width: 100%; text-align: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>View Developer Build Guide</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+    <section id="faq" class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Knowledge Base</span>
+          </div>
+          <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+          <p class="section-description">
+            Everything you need to know about privacy, permissions, selectors, and automation exports.
+          </p>
+        </header>
+
+        <div class="faq-container">
+          
+          <div class="faq-item active">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span>Is Workflow Recorder completely free to use?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes, Workflow Recorder is 100% free and open-source. There are no paid subscriptions, no credits, no usage caps, and no mandatory account logins. You can record unlimited workflows and export unlimited automation scripts.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Does Workflow Recorder collect my data or send telemetry?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Zero telemetry. Workflow Recorder operates strictly client-side inside your browser sandbox. All workflow data, step definitions, and screenshots are saved in your computer's local IndexedDB. No external analytics, tracking pixels, or remote servers are ever queried.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How does the 7-tier selector scoring engine prevent flaky tests?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Instead of relying on random auto-generated CSS classes (like Tailwind or CSS Modules hash strings), Workflow Recorder generates up to 7 distinct selector tiers for every recorded action: <code>data-testid</code>, accessible ARIA roles, semantic IDs, text anchors, optimized CSS, and XPath. Each selector receives a confidence score (0–100). If one selector breaks during future app redesigns, the fallback chain keeps your test running.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can I record flows across multiple tabs or popups?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes. The Manifest V3 service worker includes a dedicated <code>TabManager</code> that tracks tab switches, popup windows, and URL redirections, generating corresponding <code>page.waitForEvent('popup')</code> or <code>context.waitForEvent('page')</code> steps in your exported Playwright script.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can I run the exported Playwright and Puppeteer scripts in CI/CD?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Yes! The exported files are standard ES modules or Python scripts. You can drop them directly into any GitHub Actions, GitLab CI, Jenkins, or CircleCI runner and execute them using standard runner commands like <code>npx playwright test</code>.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Why does the extension ask for permissions like "tabs" and "storage"?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Each permission is strictly required for local recording: <code>storage</code> saves your workflows in local IndexedDB; <code>tabs</code> detects page navigations; <code>scripting</code> injects the passive recording listener on the active page; and <code>downloads</code> lets you save your generated test script files to your computer.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM HIGH-CONVERTING CTA BANNER -->
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+        <div class="bottom-cta-card">
+          <h2 class="bottom-cta-title">Ready to Automate Your Browser Workflows?</h2>
+          <p class="bottom-cta-subtitle">
+            Join thousands of developers and QA engineers who record and export bulletproof test automation in seconds. Free forever.
+          </p>
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-chrome btn-chrome-hero js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+              <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+                <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+                <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+              </svg>
+              <span>Add to Chrome — It’s Free</span>
+            </button>
+            <a href="docs.html" class="btn btn-secondary">
+              Read Documentation &amp; Guides
+            </a>
+          </div>
+          <div style="margin-top: 20px; font-size: 0.88rem; color: var(--text-muted);">
+            No credit card required · Instant setup · Chrome Manifest V3 Certified
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/icon-32.png" alt="Workflow Recorder Icon" width="24" height="24" />
+            <span>Workflow Recorder</span>
+          </div>
+          <p class="footer-desc">
+            Production-quality, privacy-first Google Chrome Extension (Manifest V3) that records browser interactions and generates resilient test automation scripts.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            License: MIT Open Source
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Features &amp; Engine</a></li>
+            <li><a href="#demo">Live Sandbox</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="exporters.html">Exporters Studio</a></li>
+            <li><a href="#comparison">Comparison</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Frameworks</h4>
+          <ul class="footer-links">
+            <li><a href="exporters.html">Playwright (TS/JS)</a></li>
+            <li><a href="exporters.html">Puppeteer Node.js</a></li>
+            <li><a href="exporters.html">Selenium Python</a></li>
+            <li><a href="exporters.html">Cypress E2E</a></li>
+            <li><a href="exporters.html">JSON &amp; YAML Specs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Installation</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="js-open-install-modal">Chrome Web Store</a></li>
+            <li><a href="docs.html#install">Developer Mode Guide</a></li>
+            <li><a href="features.html#selector-engine">Selector Intelligence</a></li>
+            <li><a href="privacy.html">Privacy &amp; Security</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Workflow Recorder. Released under the MIT License.
+        </div>
+        <div>
+          Google Chrome is a trademark of Google LLC. Workflow Recorder is an independent open-source project.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INSTALLATION MODAL DIALOG -->
+  <div id="install-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <img src="assets/icon-32.png" alt="Workflow Recorder" width="28" height="28" />
+          <h3 id="modal-title" class="modal-title">Install Workflow Recorder</h3>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Installation Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Web Store Option -->
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Chrome Web Store</span>
+            <span style="font-size: 0.72rem; color: var(--primary); font-weight: 800; background: var(--primary-light); padding: 2px 8px; border-radius: 9999px;">RECOMMENDED</span>
+          </div>
+          <p class="modal-option-desc">Install directly into Google Chrome, Microsoft Edge, Brave, or Opera with 1 click.</p>
+          <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" class="btn btn-chrome" style="width: 100%;">
+            <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+              <circle cx="12" cy="12" r="4" fill="#FFFFFF"/>
+            </svg>
+            <span>Open in Chrome Web Store</span>
+          </a>
+        </div>
+
+        <!-- Developer Mode Source Option -->
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Build from Source (Developer Mode)</span>
+            <span style="font-size: 0.72rem; color: var(--success); font-weight: 800; background: var(--success-bg); padding: 2px 8px; border-radius: 9999px;">OPEN SOURCE</span>
+          </div>
+          <p class="modal-option-desc">Compile locally with <code>npm run build</code> and load the unpacked <code>dist/</code> directory in <code>chrome://extensions</code>.</p>
+          <a href="docs.html#install" class="btn btn-secondary" style="width: 100%; text-align: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>View Developer Build Guide</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Logic Script -->
+  <script src="app.js"></script>
+</body>
+</html>

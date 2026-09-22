@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary SEO Meta Tags -->
+  <title>7-Tier Selector Engine &amp; Architecture | Workflow Recorder</title>
+  <meta name="title" content="7-Tier Selector Engine &amp; Architecture | Workflow Recorder" />
+  <meta name="description" content="Explore Workflow Recorder's 7-tier selector scoring engine, closed Shadow DOM traversal, event normalizer, and zero-telemetry client architecture." />
+  <meta name="keywords" content="7-tier selector engine, playwright selector hierarchy, shadow dom test recorder, event normalizer, resilient automation locators, data-testid recorder, chrome extension test automation" />
+  <meta name="author" content="Workflow Recorder Team" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://workflowrecorder.dev/features.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png" />
+  <link rel="apple-touch-icon" href="assets/icon-128.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://workflowrecorder.dev/features.html" />
+  <meta property="og:title" content="7-Tier Selector Engine &amp; Architecture | Workflow Recorder" />
+  <meta property="og:description" content="Deep architectural breakdown: 7-tier selector scoring, closed Shadow DOM traversal, event normalization pipeline, and local PrivacyGuard." />
+  <meta property="og:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="560" />
+  <meta property="og:site_name" content="Workflow Recorder" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://workflowrecorder.dev/features.html" />
+  <meta name="twitter:title" content="7-Tier Selector Engine &amp; Architecture | Workflow Recorder" />
+  <meta name="twitter:description" content="Explore the 7-tier selector scoring algorithm and closed Shadow DOM piercing engine." />
+  <meta name="twitter:image" content="https://workflowrecorder.dev/assets/promo-marquee.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured Data: TechArticle Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "7-Tier Resilient Selector Hierarchy & Event Normalization Architecture",
+    "description": "Comprehensive architectural specification of the 7-tier selector scoring algorithm, closed Shadow DOM piercing, and client-side PrivacyGuard in Workflow Recorder.",
+    "url": "https://workflowrecorder.dev/features.html",
+    "image": "https://workflowrecorder.dev/assets/promo-marquee.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Workflow Recorder",
+      "url": "https://workflowrecorder.dev/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://workflowrecorder.dev/assets/icon-128.png"
+      }
+    },
+    "datePublished": "2026-09-19",
+    "dateModified": "2026-09-22"
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://workflowrecorder.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Features & Architecture",
+        "item": "https://workflowrecorder.dev/features.html"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Decorative Glows -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="decor-glow-1"></div>
+    <div class="decor-glow-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link" aria-label="Workflow Recorder Home">
+        <img src="assets/icon-48.png" alt="Workflow Recorder Icon" class="logo-icon" width="38" height="38" />
+        <div class="logo-text-group">
+          <span class="logo-title">Workflow Recorder</span>
+          <span class="logo-tag">CHROME EXTENSION MV3</span>
+        </div>
+      </a>
+
+      <nav id="desktop-nav" class="desktop-nav" aria-label="Main Navigation">
+        <a href="features.html" class="nav-link active">Features</a>
+        <a href="index.html#demo" class="nav-link">Live Sandbox</a>
+        <a href="docs.html" class="nav-link">Docs &amp; Guides</a>
+        <a href="exporters.html" class="nav-link">Exporters</a>
+        <a href="index.html#comparison" class="nav-link">Comparison</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn-chrome btn-chrome-header js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+          <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+            <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+            <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+          </svg>
+          <span>Add to Chrome</span>
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Mobile Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- Hero Banner -->
+    <section class="section" style="padding-top: 50px; padding-bottom: 60px;">
+      <div class="container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span class="breadcrumbs-current">Features &amp; Technical Architecture</span>
+        </nav>
+
+        <div class="section-badge">
+          <span class="dot"></span>
+          <span>Core Engineering Deep Dive</span>
+        </div>
+        <h1 class="section-title" style="text-align: left; max-width: 900px; margin-bottom: 20px;">
+          Engineered for Resilience: <span class="gradient-text">Zero-Flake Browser Automation</span>
+        </h1>
+        <p class="section-description" style="text-align: left; max-width: 820px; margin: 0 0 32px 0;">
+          Traditional record-and-replay tools fail because they record brittle coordinates or fragile auto-generated CSS classes. Workflow Recorder replaces brittle heuristics with an intelligent multi-strategy DOM evaluation engine, event normalizers, and isolated content script pipelines.
+        </p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#selector-engine" class="btn btn-primary">Selector Engine &amp; Gauge</a>
+          <a href="#event-pipeline" class="btn btn-secondary">Event Pipeline</a>
+          <a href="#shadow-dom" class="btn btn-secondary">Shadow DOM Piercing</a>
+          <a href="#privacy-guard" class="btn btn-secondary">PrivacyGuard</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 1: 7-Tier Selector Scoring Engine -->
+    <section id="selector-engine" class="section section-subtle">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Intelligent Targeting</span>
+          </div>
+          <h2 class="section-title">The 7-Tier Resilient Selector Hierarchy</h2>
+          <p class="section-description">
+            When you click or type, Workflow Recorder inspects the target DOM element across multiple candidate strategies, generating fallback tiers and scoring each candidate against uniqueness, DOM depth, and volatility penalties.
+          </p>
+        </div>
+
+        <!-- Interactive Radial Selector Gauge Widget -->
+        <div class="gauge-card" id="gauge-demo">
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="hero-eyebrow-pill" style="margin-bottom: 6px;">INTERACTIVE RESILIENCE GAUGE</span>
+                <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin: 6px 0;">Live Selector Scoring Studio</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem;">Evaluate test IDs, semantic locators, CSS classes, or XPath expressions against the real-time scoring algorithm.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gauge-grid">
+            <!-- Radial SVG Gauge Display -->
+            <div class="gauge-visual-wrap">
+              <svg class="radial-gauge-svg" viewBox="0 0 200 200" aria-label="Selector Stability Radial Gauge">
+                <circle class="gauge-circle-bg" cx="100" cy="100" r="90" />
+                <circle id="gauge-circle-meter" class="gauge-circle-meter" cx="100" cy="100" r="90" />
+              </svg>
+              <div class="gauge-center-content">
+                <div id="gauge-score-val" class="gauge-score-number">100</div>
+                <div class="gauge-score-total">/ 100 PTS</div>
+                <div id="gauge-verdict" class="gauge-verdict-badge gauge-verdict-solid">Rock Solid</div>
+              </div>
+            </div>
+
+            <!-- Interactive Gauge Controls & Breakdown -->
+            <div class="gauge-controls-wrap">
+              <div>
+                <label for="gauge-selector-input" style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Test Candidate Expression</label>
+                <div class="gauge-input-box">
+                  <input type="text" id="gauge-selector-input" value="[data-testid='submit-checkout-btn']" placeholder="Type selector or XPath..." spellcheck="false" autocomplete="off" />
+                  <button type="button" id="gauge-eval-btn" class="btn btn-primary" style="padding: 0 20px;">Calculate</button>
+                </div>
+              </div>
+
+              <!-- Presets -->
+              <div>
+                <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 8px;">Preset Selector Archetypes:</span>
+                <div class="gauge-presets-list">
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="[data-testid='login-button']">[data-testid='login-button']</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="#user-login-submit">#user-login-submit</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="button[aria-label='Submit Application']">button[aria-label='Submit Application']</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="form &gt; div:nth-child(3) &gt; input">form &gt; div:nth-child(3) &gt; input</button>
+                  <button type="button" class="gauge-preset-btn js-gauge-preset" data-selector="//button[contains(@class, 'css-182jsd-btn')]">//button[contains(@class, 'css-182jsd-btn')]</button>
+                </div>
+              </div>
+
+              <!-- Metrics Breakdown -->
+              <div class="gauge-metrics-breakdown">
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">Hierarchy Tier</div>
+                  <div id="gauge-metric-tier" class="gauge-metric-val">Tier 1 (Test ID)</div>
+                </div>
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">DOM Uniqueness</div>
+                  <div id="gauge-metric-uniq" class="gauge-metric-val">Unique (1:1)</div>
+                </div>
+                <div class="gauge-metric-item">
+                  <div class="gauge-metric-label">Fragility Penalty</div>
+                  <div id="gauge-metric-penalty" class="gauge-metric-val">0% (None)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 Tiers Detailed Breakdown Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px;">
+          
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank">Tier 1</span>
+              <span class="tier-score">Base: 1.00</span>
+            </div>
+            <h3 class="feature-title">Explicit Automation Anchors</h3>
+            <p class="feature-description">
+              Dedicated test attributes (<code>data-testid</code>, <code>data-test</code>, <code>data-cy</code>, <code>data-qa</code>) and static unique IDs. Never affected by design redesigns or styling class rewrites.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">
+              [data-testid="checkout-payment-btn"]
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank">Tier 2</span>
+              <span class="tier-score">Base: 0.92</span>
+            </div>
+            <h3 class="feature-title">Accessible ARIA Semantics</h3>
+            <p class="feature-description">
+              Locators built on accessible user-facing contracts: <code>aria-label</code>, <code>role</code> + accessible text name, and associated <code>&lt;label for="..."&gt;</code> elements.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">
+              button[aria-label="Confirm Purchase"]
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank">Tier 3</span>
+              <span class="tier-score">Base: 0.85</span>
+            </div>
+            <h3 class="feature-title">Stable Form Attributes</h3>
+            <p class="feature-description">
+              Form control attributes like <code>name</code>, input <code>type</code>, <code>placeholder</code>, and semantic class names with dynamic hashes pruned.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">
+              input[name="shipping_street"][type="text"]
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank">Tier 4</span>
+              <span class="tier-score">Base: 0.70</span>
+            </div>
+            <h3 class="feature-title">Structural &amp; Text XPath</h3>
+            <p class="feature-description">
+              Attribute-anchored and semantic text-anchored XPath expressions that uniquely identify elements containing specific text strings or nested structures.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">
+              //button[normalize-space()='Submit Review']
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank">Tier 5</span>
+              <span class="tier-score">Base: 0.40</span>
+            </div>
+            <h3 class="feature-title">Ancestor-Scoped Hierarchies</h3>
+            <p class="feature-description">
+              Relative structural paths anchored to the nearest unique container element, avoiding full root-to-leaf paths that break on minor DOM layout shifts.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);">
+              #checkout-summary &gt; table &gt; tr:nth-child(2) &gt; td
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="tier-rank" style="background: rgba(239, 68, 68, 0.15); color: var(--error);">Filter</span>
+              <span class="tier-score" style="color: var(--error);">-45% Penalty</span>
+            </div>
+            <h3 class="feature-title">Dynamic Class Rejection</h3>
+            <p class="feature-description">
+              Automatically identifies and discards build-generated dynamic classes from CSS-in-JS (<code>css-182jsd</code>, <code>sc-bdVaJa</code>), Tailwind random hashes, GUIDs, and timestamps.
+            </p>
+            <div style="background: var(--bg-code); padding: 8px 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; color: var(--error);">
+              Discarded: btn-1726402800123 / sc-gzVnrw
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: Event Normalization Pipeline -->
+    <section id="event-pipeline" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Intelligent Filtering</span>
+          </div>
+          <h2 class="section-title">Event Normalization &amp; Noise Reduction</h2>
+          <p class="section-description">
+            A real browser interaction produces thousands of raw micro-events every minute. Workflow Recorder's content-script normalizer groups, collapses, and cleans these events into high-level automated steps.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+          
+          <div class="feature-card">
+            <h3 class="feature-title">Keystroke Buffering &amp; Grouping</h3>
+            <p class="feature-description">
+              Typing "admin@company.com" emits 34 raw events (keydown, keypress, input, keyup per character). The normalizer buffers typing into a pending character queue and flushes only 1 atomic <code>input</code> action when the user completes typing, navigates, or pauses for &gt;800ms.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Eliminates bloated 1-character test steps</li>
+              <li><span class="check-icon">✓</span> Preserves final form values cleanly</li>
+              <li><span class="check-icon">✓</span> Flushes automatically on Enter or Tab keys</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Scroll Debounce &amp; Settling</h3>
+            <p class="feature-description">
+              Users scrolling down a lengthy product catalog generate dozens of wheel ticks per second. Workflow Recorder uses a 400ms debounce window that captures only the final settled viewport coordinates <code>{ x, y }</code>.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Smooth 400ms stabilization window</li>
+              <li><span class="check-icon">✓</span> Avoids viewport thrashing in test runs</li>
+              <li><span class="check-icon">✓</span> Accurately triggers lazy-loaded elements</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Redundant Click Suppression</h3>
+            <p class="feature-description">
+              Focusing an input field immediately followed by typing is merged cleanly into the input step. Accidental rapid double-clicks within 200ms are either deduplicated or promoted to explicit <code>dblclick</code> actions.
+            </p>
+            <ul class="feature-checklist">
+              <li><span class="check-icon">✓</span> Focus-click merging on form inputs</li>
+              <li><span class="check-icon">✓</span> Automatic double-click detection</li>
+              <li><span class="check-icon">✓</span> Configurable hover threshold delay (500ms)</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Shadow DOM & iFrame Piercing -->
+    <section id="shadow-dom" class="section section-subtle">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Micro-Frontend Ready</span>
+          </div>
+          <h2 class="section-title">Shadow DOM &amp; Multi-Frame Piercing</h2>
+          <p class="section-description">
+            Modern enterprise applications use Web Components, closed Shadow Roots, and embedded iframes. Workflow Recorder captures cross-boundary event chains with complete encapsulation safety.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+          
+          <div class="feature-card">
+            <h3 class="feature-title">Closed Shadow DOM HUD Controller</h3>
+            <p class="feature-description">
+              The on-page floating recording bar is rendered inside a private <code>&lt;workflow-recorder-controller&gt;</code> Shadow DOM. All elements carry <code>data-workflow-recorder-ignore</code> so the recorder never records clicks on its own controls!
+            </p>
+            <div style="background: var(--bg-code); padding: 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); margin-top: 12px;">
+              event.composedPath().some(el =&gt; el.hasAttribute('data-workflow-recorder-ignore'))
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Multi-Level iFrame Locators</h3>
+            <p class="feature-description">
+              When interacting with elements inside embedded iframes (such as Stripe payment forms, OAuth popups, or chat widgets), the engine logs the frame hierarchy and generates Playwright <code>page.frameLocator()</code> syntax automatically.
+            </p>
+            <div style="background: var(--bg-code); padding: 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); margin-top: 12px;">
+              page.frameLocator('#payment-iframe').locator('[data-testid="card-cvv"]')
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">Multi-Tab &amp; Popup Tracking</h3>
+            <p class="feature-description">
+              When a link opens in a new tab or an SSO popup window appears, the background service worker maps Chrome tab IDs to logical keys (<code>tab_1</code>, <code>tab_2</code>), recording smooth tab switches and closures.
+            </p>
+            <div style="background: var(--bg-code); padding: 12px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); margin-top: 12px;">
+              const popup = await page.waitForEvent('popup');<br/>await popup.locator('#sso-confirm').click();
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: PrivacyGuard & Air-Gapped Security -->
+    <section id="privacy-guard" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="dot"></span>
+            <span>Security by Design</span>
+          </div>
+          <h2 class="section-title">PrivacyGuard: Zero Telemetry &amp; Sensitive Masking</h2>
+          <p class="section-description">
+            Your credentials and enterprise data should never leave your machine. Workflow Recorder operates 100% client-side with automatic sanitization at the DOM event boundary.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+          
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Password Masking</h3>
+            <p class="feature-description">
+              Any input with <code>type="password"</code> is intercepted. Plaintext characters never enter memory or IndexedDB, immediately replaced with <code>{{password}}</code> tokens.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">0 External Network Calls</h3>
+            <p class="feature-description">
+              No tracking pixels, no telemetry endpoints, no cloud accounts. Network call audit strictly proves 0 HTTP requests. Pure local client extension.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">PII &amp; Token Scrubber</h3>
+            <p class="feature-description">
+              Regex patterns automatically identify credit card numbers, CVVs, SSNs, OTP codes, and URL query tokens (e.g. <code>?access_token=...</code>) and scrub them.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Local IndexedDB</h3>
+            <p class="feature-description">
+              Workflows and screenshots are saved in browser's local IndexedDB (<code>workflow_recorder_db</code>). Export, backup, or wipe all records with 1 click.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+        <div class="bottom-cta-card">
+          <h2 class="bottom-cta-title">Experience the Intelligent Recording Engine</h2>
+          <p class="bottom-cta-subtitle">
+            Add to Chrome in seconds and experience flake-free browser automation export.
+          </p>
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-chrome btn-chrome-hero js-open-install-modal" aria-label="Add Workflow Recorder to Chrome">
+              <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="#4285F4" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.06-1.09.17-1.61l4.49 7.78c.84 1.15 2.19 1.83 3.64 1.83h-.3zm0-15c2.61 0 4.89 1.25 6.32 3.19l-4.52 7.83c-.5-.01-1.22-.02-1.8-.02-2.76 0-5 2.24-5 5 0 .2.02.4.05.6L3.92 9.42C5.46 5.86 8.98 3.5 12 3.5zm7.84 7.55c.1.48.16.98.16 1.45 0 3.32-2.02 6.17-4.91 7.37l3.65-6.32c.73-1.27.73-2.84 0-4.1l-1.65 1.6z"/>
+                <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+                <circle cx="12" cy="12" r="2.5" fill="#4285F4"/>
+              </svg>
+              <span>Add to Chrome — It’s Free</span>
+            </button>
+            <a href="docs.html" class="btn btn-secondary">
+              Read Documentation &amp; Guides
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/icon-32.png" alt="Workflow Recorder Icon" width="24" height="24" />
+            <span>Workflow Recorder</span>
+          </div>
+          <p class="footer-desc">
+            Production-quality, privacy-first Google Chrome Extension (Manifest V3) that records browser interactions and generates resilient test automation scripts.
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">License: MIT Open Source</div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Features &amp; Engine</a></li>
+            <li><a href="index.html#demo">Live Sandbox</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="exporters.html">Exporters Studio</a></li>
+            <li><a href="index.html#comparison">Comparison</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Frameworks</h4>
+          <ul class="footer-links">
+            <li><a href="exporters.html">Playwright (TS/JS)</a></li>
+            <li><a href="exporters.html">Puppeteer Node.js</a></li>
+            <li><a href="exporters.html">Selenium Python</a></li>
+            <li><a href="exporters.html">Cypress E2E</a></li>
+            <li><a href="exporters.html">JSON &amp; YAML Specs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Installation</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="js-open-install-modal">Chrome Web Store</a></li>
+            <li><a href="docs.html#install">Developer Mode Guide</a></li>
+            <li><a href="features.html#selector-engine">Selector Intelligence</a></li>
+            <li><a href="privacy.html">Privacy &amp; Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Workflow Recorder. Released under the MIT License.</div>
+        <div>Google Chrome is a trademark of Google LLC. Workflow Recorder is an independent open-source project.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INSTALL MODAL -->
+  <div id="install-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <img src="assets/icon-32.png" alt="Workflow Recorder" width="28" height="28" />
+          <h3 id="modal-title" class="modal-title">Install Workflow Recorder</h3>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Installation Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Chrome Web Store</span>
+            <span style="font-size: 0.72rem; color: var(--primary); font-weight: 800; background: var(--primary-light); padding: 2px 8px; border-radius: 9999px;">RECOMMENDED</span>
+          </div>
+          <p class="modal-option-desc">Install directly into Google Chrome, Microsoft Edge, Brave, or Opera with 1 click.</p>
+          <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer" class="btn btn-chrome" style="width: 100%;">
+            <svg class="btn-chrome-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+              <circle cx="12" cy="12" r="4" fill="#FFFFFF"/>
+            </svg>
+            <span>Open in Chrome Web Store</span>
+          </a>
+        </div>
+
+        <div class="modal-option-card">
+          <div class="modal-option-title">
+            <span>Build from Source (Developer Mode)</span>
+            <span style="font-size: 0.72rem; color: var(--success); font-weight: 800; background: var(--success-bg); padding: 2px 8px; border-radius: 9999px;">OPEN SOURCE</span>
+          </div>
+          <p class="modal-option-desc">Compile locally with <code>npm run build</code> and load the unpacked <code>dist/</code> directory in <code>chrome://extensions</code>.</p>
+          <a href="docs.html#install" class="btn btn-secondary" style="width: 100%; text-align: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>View Developer Build Guide</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- 1. Home Page -->
+  <url>
+    <loc>https://workflowrecorder.dev/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/promo-marquee.png</image:loc>
+      <image:title>Workflow Recorder — Chrome Extension for Browser Test Automation</image:title>
+      <image:caption>Record browser interactions with 7-tier selector scoring and export to Playwright, Puppeteer, Selenium, and Cypress.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-1-workflow-editor.png</image:loc>
+      <image:title>3-Panel Workflow Editor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-2-live-recording.png</image:loc>
+      <image:title>In-Page Floating Recording Controller HUD</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-3-code-export.png</image:loc>
+      <image:title>Instant Multi-Framework Automation Code Exporter</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-4-selector-intelligence.png</image:loc>
+      <image:title>7-Strategy Resilient Selector Engine</image:title>
+    </image:image>
+  </url>
+
+  <!-- 2. Features & Architecture -->
+  <url>
+    <loc>https://workflowrecorder.dev/features.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-4-selector-intelligence.png</image:loc>
+      <image:title>7-Tier Selector Hierarchy &amp; Dynamic Class Rejection</image:title>
+    </image:image>
+  </url>
+
+  <!-- 3. Documentation & User Manual -->
+  <url>
+    <loc>https://workflowrecorder.dev/docs.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-1-workflow-editor.png</image:loc>
+      <image:title>Step-by-Step Recording &amp; Editor Documentation</image:title>
+    </image:image>
+  </url>
+
+  <!-- 4. Automation Exporters Studio -->
+  <url>
+    <loc>https://workflowrecorder.dev/exporters.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://workflowrecorder.dev/assets/screenshot-3-code-export.png</image:loc>
+      <image:title>Interactive Exporter Studio with Live Code Downloads</image:title>
+    </image:image>
+  </url>
+
+  <!-- 5. Privacy Policy & Security Model -->
+  <url>
+    <loc>https://workflowrecorder.dev/privacy.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+</urlset>

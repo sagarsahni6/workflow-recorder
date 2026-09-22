@@ -10,11 +10,16 @@
     "build:pages": "vite build",
     "build:scripts": "node scripts/build-scripts.mjs",
     "build:manifest": "node scripts/copy-manifest.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "generate:assets": "node scripts/generate-store-assets.mjs",
+    "validate:cws": "node scripts/validate-cws.mjs",
+    "package": "npm run build && node scripts/validate-cws.mjs && node scripts/package-extension.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/ --ext .ts,.tsx",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve:website": "npx -y serve website -p 3000"
   },
   "dependencies": {
     "idb": "^8.0.3",
