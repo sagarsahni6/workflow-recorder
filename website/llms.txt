@@ -22,10 +22,10 @@ Workflow Recorder captures clicks, form submissions, keystrokes, and multi-tab n
   - Markdown Runbook (`.md`)
 
 ## Key Links & Resources
-- Website & Live Sandbox: https://workflowrecorder.dev/
-- Features & Architectural Deep-Dive: https://workflowrecorder.dev/features.html
-- Developer Manual & User Guide: https://workflowrecorder.dev/docs.html
-- Automation Exporters Hub: https://workflowrecorder.dev/exporters.html
-- Privacy & Security Whitepaper: https://workflowrecorder.dev/privacy.html
+- Website & Live Sandbox: https://workflow-recorder.calclabz.com/
+- Features & Architectural Deep-Dive: https://workflow-recorder.calclabz.com/features.html
+- Developer Manual & User Guide: https://workflow-recorder.calclabz.com/docs.html
+- Automation Exporters Hub: https://workflow-recorder.calclabz.com/exporters.html
+- Privacy & Security Whitepaper: https://workflow-recorder.calclabz.com/privacy.html
 - Chrome Web Store Install: https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp
-- Full LLM Context: https://workflowrecorder.dev/llms-full.txt
+- Full LLM Context: https://workflow-recorder.calclabz.com/llms-full.txt

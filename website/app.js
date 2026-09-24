@@ -246,7 +246,7 @@ function initInteractiveDemo() {
       demoCodeOutput.textContent = lines.join('\n');
     } else if (selectedFramework === 'json') {
       const canonicalData = {
-        $schema: "https://schemas.workflowrecorder.dev/v1/workflow.schema.json",
+        $schema: "https://schemas.workflow-recorder.calclabz.com/v1/workflow.schema.json",
         name: "Interactive Recorded Session",
         version: "1.0.0",
         steps: recordedSteps.map((s, i) => ({
@@ -397,7 +397,7 @@ def test_user_workflow():
   'json': {
     filename: 'workflow.canonical.json',
     code: `{
-  "$schema": "https://schemas.workflowrecorder.dev/v1/workflow.schema.json",
+  "$schema": "https://schemas.workflow-recorder.calclabz.com/v1/workflow.schema.json",
   "id": "wf_rec_982b1c",
   "name": "Enterprise Login & Dashboard Nav",
   "version": "1.0.0",
@@ -844,7 +844,7 @@ interface AuthWorkflowVariables {
 
 const variables: AuthWorkflowVariables = {
   username: 'engineer@enterprise.io',
-  app_url: 'https://app.workflowrecorder.dev/login',
+  app_url: 'https://app.workflow-recorder.calclabz.com/login',
   expected_user: 'Alex Rivera (Lead Architect)',
 };
 
@@ -883,7 +883,7 @@ test.describe('Authentication & Session Workflow', () => {
 
 const variables = {
   username: 'engineer@enterprise.io',
-  app_url: 'https://app.workflowrecorder.dev/login',
+  app_url: 'https://app.workflow-recorder.calclabz.com/login',
   expected_user: 'Alex Rivera (Lead Architect)',
 };
 
@@ -906,7 +906,7 @@ test('Authentication Flow with 2FA Token', async ({ page }) => {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
-  const appUrl = 'https://app.workflowrecorder.dev/login';
+  const appUrl = 'https://app.workflow-recorder.calclabz.com/login';
   await page.goto(appUrl, { waitUntil: 'networkidle2' });
 
   // Fill email via reliable test ID
@@ -941,7 +941,7 @@ wait = WebDriverWait(driver, 15)
 
 try:
     # Step 1: Open Login URL
-    driver.get("https://app.workflowrecorder.dev/login")
+    driver.get("https://app.workflow-recorder.calclabz.com/login")
 
     # Step 2: Fill Email
     email_field = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='email-input']")))
@@ -972,7 +972,7 @@ finally:
         filename: 'auth_login.cy.ts',
         code: `describe('Authentication & MFA Verification', () => {
   it('navigates and logs in with resilient selectors', () => {
-    cy.visit('https://app.workflowrecorder.dev/login');
+    cy.visit('https://app.workflow-recorder.calclabz.com/login');
 
     cy.get('[data-testid="email-input"]')
       .should('be.visible')
@@ -995,13 +995,13 @@ finally:
       'json': {
         filename: 'auth-workflow.schema.json',
         code: `{
-  "$schema": "https://workflowrecorder.dev/schemas/workflow.schema.json",
+  "$schema": "https://workflow-recorder.calclabz.com/schemas/workflow.schema.json",
   "version": "1.0.0",
   "id": "wf_auth_981240",
   "title": "Corporate Authentication & MFA",
   "variables": {
     "username": "engineer@enterprise.io",
-    "app_url": "https://app.workflowrecorder.dev/login"
+    "app_url": "https://app.workflow-recorder.calclabz.com/login"
   },
   "steps": [
     { "id": "step_1", "type": "navigate", "url": "${`\${app_url}`}" },
@@ -1020,7 +1020,7 @@ id: wf_auth_981240
 title: Corporate Authentication & MFA
 variables:
   username: engineer@enterprise.io
-  app_url: https://app.workflowrecorder.dev/login
+  app_url: https://app.workflow-recorder.calclabz.com/login
 steps:
   - id: step_1
     type: navigate
@@ -1175,7 +1175,7 @@ steps:
         code: `import { test, expect } from '@playwright/test';
 
 test('Admin Webhook Configuration Flow', async ({ page }) => {
-  await page.goto('https://cloud.workflowrecorder.dev/settings/webhooks');
+  await page.goto('https://cloud.workflow-recorder.calclabz.com/settings/webhooks');
 
   // Add new webhook target
   await page.locator('[data-testid="create-webhook-btn"]').click();
@@ -1196,7 +1196,7 @@ test('Admin Webhook Configuration Flow', async ({ page }) => {
         code: `import { test, expect } from '@playwright/test';
 
 test('Admin Webhook Setup', async ({ page }) => {
-  await page.goto('https://cloud.workflowrecorder.dev/settings/webhooks');
+  await page.goto('https://cloud.workflow-recorder.calclabz.com/settings/webhooks');
   await page.locator('[data-testid="create-webhook-btn"]').click();
   await page.locator('input[name="webhook_name"]').fill('CI/CD Deployment Alert');
   await page.locator('input[name="webhook_url"]').fill('https://api.ops.internal/hooks/v1/trigger');
@@ -1210,7 +1210,7 @@ test('Admin Webhook Setup', async ({ page }) => {
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://cloud.workflowrecorder.dev/settings/webhooks');
+  await page.goto('https://cloud.workflow-recorder.calclabz.com/settings/webhooks');
   await page.click('[data-testid="create-webhook-btn"]');
   await page.type('input[name="webhook_name"]', 'CI/CD Deployment Alert');
   await page.type('input[name="webhook_url"]', 'https://api.ops.internal/hooks/v1/trigger');
@@ -1229,7 +1229,7 @@ driver = webdriver.Chrome()
 wait = WebDriverWait(driver, 10)
 
 try:
-    driver.get("https://cloud.workflowrecorder.dev/settings/webhooks")
+    driver.get("https://cloud.workflow-recorder.calclabz.com/settings/webhooks")
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='create-webhook-btn']"))).click()
     driver.find_element(By.NAME, "webhook_name").send_keys("CI/CD Deployment Alert")
     driver.find_element(By.NAME, "webhook_url").send_keys("https://api.ops.internal/hooks/v1/trigger")
@@ -1241,7 +1241,7 @@ finally:
         filename: 'admin_settings.cy.ts',
         code: `describe('Admin Webhooks', () => {
   it('creates a new webhook subscriber', () => {
-    cy.visit('https://cloud.workflowrecorder.dev/settings/webhooks');
+    cy.visit('https://cloud.workflow-recorder.calclabz.com/settings/webhooks');
     cy.get('[data-testid="create-webhook-btn"]').click();
     cy.get('input[name="webhook_name"]').type('CI/CD Deployment Alert');
     cy.get('input[name="webhook_url"]').type('https://api.ops.internal/hooks/v1/trigger');
@@ -1256,7 +1256,7 @@ finally:
   "version": "1.0.0",
   "title": "Admin Webhook Setup",
   "steps": [
-    { "type": "navigate", "url": "https://cloud.workflowrecorder.dev/settings/webhooks" },
+    { "type": "navigate", "url": "https://cloud.workflow-recorder.calclabz.com/settings/webhooks" },
     { "type": "click", "selector": "[data-testid='create-webhook-btn']" },
     { "type": "input", "selector": "input[name='webhook_name']", "value": "CI/CD Deployment Alert" },
     { "type": "input", "selector": "input[name='webhook_url']", "value": "https://api.ops.internal/hooks/v1/trigger" },
@@ -1270,7 +1270,7 @@ finally:
 title: Admin Webhook Setup
 steps:
   - type: navigate
-    url: https://cloud.workflowrecorder.dev/settings/webhooks
+    url: https://cloud.workflow-recorder.calclabz.com/settings/webhooks
   - type: click
     selector: "[data-testid='create-webhook-btn']"
   - type: input

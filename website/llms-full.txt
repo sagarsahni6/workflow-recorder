@@ -89,10 +89,10 @@ finally:
 | **Variable Binding (${var})** | Yes | No | No | Basic |
 
 ## 7. URL Map
-- Home: https://workflowrecorder.dev/
-- Features: https://workflowrecorder.dev/features.html
-- Documentation: https://workflowrecorder.dev/docs.html
-- Exporters: https://workflowrecorder.dev/exporters.html
-- Privacy: https://workflowrecorder.dev/privacy.html
+- Home: https://workflow-recorder.calclabz.com/
+- Features: https://workflow-recorder.calclabz.com/features.html
+- Documentation: https://workflow-recorder.calclabz.com/docs.html
+- Exporters: https://workflow-recorder.calclabz.com/exporters.html
+- Privacy: https://workflow-recorder.calclabz.com/privacy.html
 - Chrome Web Store: https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp
-- Sitemap: https://workflowrecorder.dev/sitemap.xml
+- Sitemap: https://workflow-recorder.calclabz.com/sitemap.xml
