@@ -2,6 +2,8 @@
 
 > A production-quality, privacy-first Google Chrome Extension (Manifest V3) that records user browser workflows, normalizes interactions into structured canonical steps, enables visual editing and variable parametrization, and exports to multiple automation and code formats.
 
+**Install from Chrome Web Store:** [Workflow Recorder on Google Chrome Web Store](https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp)
+
 ---
 
 ## 🌟 Key Features

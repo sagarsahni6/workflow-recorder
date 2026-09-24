@@ -1,5 +1,8 @@
 # Chrome Web Store Submission & Publishing Kit
 
+- **Live Store Listing:** [Workflow Recorder on Chrome Web Store](https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp)
+- **Extension ID:** `ihgohoclialmggddniffeckbdllhiokp`
+
 This guide contains everything required to publish **Workflow Recorder** to the **Google Chrome Web Store (CWS)**, including exact copy-paste metadata, reviewer permission justifications, graphic specifications, and privacy disclosures.
 
 ---

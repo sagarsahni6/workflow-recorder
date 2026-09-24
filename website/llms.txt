@@ -27,5 +27,5 @@ Workflow Recorder captures clicks, form submissions, keystrokes, and multi-tab n
 - Developer Manual & User Guide: https://workflowrecorder.dev/docs.html
 - Automation Exporters Hub: https://workflowrecorder.dev/exporters.html
 - Privacy & Security Whitepaper: https://workflowrecorder.dev/privacy.html
-- Chrome Web Store Install: https://chrome.google.com/webstore
+- Chrome Web Store Install: https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp
 - Full LLM Context: https://workflowrecorder.dev/llms-full.txt

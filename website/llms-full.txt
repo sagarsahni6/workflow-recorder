@@ -94,4 +94,5 @@ finally:
 - Documentation: https://workflowrecorder.dev/docs.html
 - Exporters: https://workflowrecorder.dev/exporters.html
 - Privacy: https://workflowrecorder.dev/privacy.html
+- Chrome Web Store: https://chromewebstore.google.com/detail/workflow-recorder/ihgohoclialmggddniffeckbdllhiokp
 - Sitemap: https://workflowrecorder.dev/sitemap.xml
